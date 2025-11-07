@@ -28,30 +28,32 @@ document.addEventListener("DOMContentLoaded", () => {
             button.disabled = true;
             button.innerText = "Sending...";
 
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message }),
-            });
+            // Use your API subdomain in production, fallback to local in dev
+            const API_BASE = window.location.hostname.includes("lcportfolio.org")
+                ? "https://api.lcportfolio.org"
+                : "http://localhost:3000";
 
-            const data = await res.json();
+            const res = await fetch(`${API_BASE}/api/contact`, {
 
-            if (data.success) {
-                statusDiv.innerText = "✅ Message sent successfully!";
-                statusDiv.style.color = "limegreen";
-                e.target.reset();
-            } else {
-                statusDiv.innerText = "❌ Failed to send: " + data.error;
-                statusDiv.style.color = "red";
-            }
-        } catch (err) {
-            console.error("Fetch error:", err);
-            statusDiv.innerText = "⚠️ Network error. Please try again later.";
+
+                const data = await res.json();
+
+                if(data.success) {
+                    statusDiv.innerText = "✅ Message sent successfully!";
+            statusDiv.style.color = "limegreen";
+            e.target.reset();
+        } else {
+            statusDiv.innerText = "❌ Failed to send: " + data.error;
             statusDiv.style.color = "red";
-        } finally {
-            button.disabled = false;
-            button.innerText = "Send";
-            setTimeout(() => { statusDiv.innerText = ""; }, 5000);
         }
-    });
+    } catch (err) {
+        console.error("Fetch error:", err);
+        statusDiv.innerText = "⚠️ Network error. Please try again later.";
+        statusDiv.style.color = "red";
+    } finally {
+        button.disabled = false;
+        button.innerText = "Send";
+        setTimeout(() => { statusDiv.innerText = ""; }, 5000);
+    }
+});
 });
