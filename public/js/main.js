@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.innerText = "Sending...";
 
             // Use your API subdomain in production, fallback to local in dev
-            const API_BASE = window.location.hostname.includes("lcportfolio.org")
+            const API_BASE = window.location.hostname.includes("www.lcportfolio.org")
                 ? "https://www.api.lcportfolio.org"
                 : "http://localhost:5000";
 
