@@ -1,72 +1,60 @@
-// =======================
-// Contact Form Handler
-// =======================
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm");
-    const statusDiv = document.getElementById("form-status") || document.getElementById("status");
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { Resend } from "resend";
 
-    if (!form) {
-        console.warn("⚠️ contactForm not found in DOM");
-        return;
+dotenv.config();
+
+const app = express();
+app.use(express.json());
+
+// ===== CORS =====
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(",")
+    : [
+        "https://www.lcportfolio.org",
+        "https://api.lcportfolio.org",
+        "http://localhost:3000",
+    ];
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) callback(null, true);
+        else callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// ===== Resend setup =====
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// ===== Contact route =====
+app.post("/api/contact", async (req, res) => {
+    try {
+        const { name, email, message } = req.body;
+        if (!name || !email || !message)
+            return res.status(400).json({ success: false, error: "Missing fields" });
+
+        await resend.emails.send({
+            from: "Portfolio Contact <no-reply@lcportfolio.org>",
+            to: "longchung90@gmail.com",
+            subject: `📬 Message from ${name}`,
+            html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong><br>${message}</p>
+      `,
+        });
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error("❌ Email send error:", error);
+        res.status(500).json({ success: false, error: error.message });
     }
-
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const name = e.target.name.value.trim();
-        const email = e.target.email.value.trim();
-        const message = e.target.message.value.trim();
-        const button = e.target.querySelector("button");
-
-        if (!name || !email || !message) {
-            statusDiv.innerText = "⚠️ Please fill out all fields.";
-            statusDiv.style.color = "red";
-            return;
-        }
-
-        try {
-            button.disabled = true;
-            button.innerText = "Sending...";
-
-            // Use your API subdomain in production, fallback to local in dev
-            const API_BASE = window.location.hostname.includes("www.lcportfolio.org")
-                ? "https://www.api.lcportfolio.org"
-                : "http://localhost:5000";
-
-
-            const res = await fetch(`${API_BASE}/api/contact`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message }),
-            });
-
-            const data = await res.json();
-
-            if (data.success) {
-                statusDiv.innerText = "✅ Message sent successfully!";
-                statusDiv.style.color = "limegreen";
-                form.reset();
-            } else {
-                statusDiv.innerText = "❌ Failed to send: " + (data.error || "Unknown error");
-                statusDiv.style.color = "red";
-            }
-        } catch (err) {
-            console.error("Fetch error:", err);
-            statusDiv.innerText = "⚠️ Network error. Please try again later.";
-            statusDiv.style.color = "red";
-        } finally {
-            button.disabled = false;
-            button.innerText = "Send";
-
-            // fade out after 5 seconds
-            setTimeout(() => {
-                statusDiv.style.transition = "opacity 1s ease";
-                statusDiv.style.opacity = "0";
-                setTimeout(() => {
-                    statusDiv.innerText = "";
-                    statusDiv.style.opacity = "1";
-                }, 1000);
-            }, 5000);
-        }
-    });
 });
+
+// ===== Start server =====
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
