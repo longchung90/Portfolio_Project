@@ -16,6 +16,9 @@ node_modules/
 package-lock.json
 yarn.lock
 
+node_modules/
+.env
+.vscode/
 
 # Build output
 dist/

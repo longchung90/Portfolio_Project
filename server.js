@@ -1,93 +1,45 @@
+// ✅ Load environment variables first
+import dotenv from "dotenv";
+dotenv.config();
+
+// ✅ Core imports
 import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import { Resend } from "resend";
 
-// ES module dirname fix
+// ✅ ES module dirname fix
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Init app
+// ✅ Init app
 const app = express();
 app.use(express.json());
-
-// ✅ Allow CORS for both domain variants
-app.use(cors({
-    origin: ["https://lcportfolio.org", "https://www.lcportfolio.org"],
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-}));
-
-// ✅ Handle preflight OPTIONS requests
-app.options("*", cors({
-    origin: ["https://lcportfolio.org", "https://www.lcportfolio.org"],
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-}));
+app.use(cors());
 
 // ✅ Serve static frontend
 app.use(express.static(path.join(__dirname, "public")));
 
-
-// ✅ Resend client
+// ✅ Initialize Resend *after* dotenv has loaded
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Health check
-app.get("/ping", (req, res) => {
-    res.json({ msg: "Server is alive!" });
-});
-// ✅ Contact form endpoint
-app.post("/api/contact", async (req, res) => {
-    const { name, email, message } = req.body;
-    console.log("📥 Incoming form submission:", req.body);
-
-
-    if (!name || !email || !message) {
-        return res
-            .status(400)
-            .json({ success: false, error: "All fields are required." });
-    }
-
+// ✅ Example route to test email
+app.post("/api/send", async (req, res) => {
     try {
-        const result = await resend.emails.send({
-            from: "Portfolio <info@lcportfolio.org>", // must match verified sender
-            to: process.env.EMAIL_USER,                // your receiving email
-            reply_to: email,                           // reply directly to sender
-            subject: `📬 Portfolio Contact: ${name}`,
-            html: `
-        <p><b>From:</b> ${name} (${email})</p>
-        <p><b>Message:</b></p>
-        <p>${message}</p>
-      `
+        const data = await resend.emails.send({
+            from: "onboarding@resend.dev",
+            to: "your@email.com",
+            subject: "Test Email",
+            html: "<strong>Hello from Resend!</strong>",
         });
-
-        // 👇 Diagnostic logging
-        console.log("Resend API result:", result);
-
-        if (result.error) {
-            console.error("Resend send error:", result.error);
-            return res
-                .status(500)
-                .json({ success: false, error: result.error.message });
-        }
-
-        res.json({ success: true, msg: "✅ Message sent successfully!" });
+        res.status(200).json(data);
     } catch (error) {
-        console.error("Unexpected send error:", error);
-        res
-            .status(500)
-            .json({ success: false, error: error.message });
+        console.error(error);
+        res.status(500).json({ error: error.message });
     }
 });
 
-
-// ✅ Root route — serve index.html
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// ✅ Dynamic Render port
-const PORT = process.env.PORT || 10000;
+// ✅ Start server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
