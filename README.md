@@ -1,26 +1,34 @@
-# 🌐 Portfolio Website Project
+# 🌌 Long Hoa Chung — Portfolio Website
 
-This is my personal portfolio website built with **HTML, CSS, and JavaScript**.  
-It showcases my **skills, projects, and experience** in data science, AI, and analytics.
-
-🔗 **Live Demo (GitHub Pages):** [View Portfolio](https://longchung90.github.io/Portfolio_Website_Project/)
+A dynamic full-stack personal portfolio showcasing my journey from biomedical research to data science, analytics, and AI.  
+Built with **Node.js**, **Express**, and **modern front-end design**.
 
 ---
 
-## ✨ Features
-- About Me section
-- Skills overview
-- Project showcase with GitHub links
-- Experience timeline
-- Contact form with JavaScript interactivity
+## 🚀 Live Demo
+🔗 [Visit Portfolio](https://lcportfolio.org)
 
 ---
 
-## 🛠 Tools & Technologies
-- HTML, CSS, JavaScript
-- Visual Studio Code
-- Git & GitHub Pages
+## 🧩 Features
+- Responsive, modern design with animated hero & smooth fade-ins  
+- Data-driven project cards with GitHub links  
+- Integrated **Resend Email API** contact form  
+- Interactive sections:
+  - Portfolio Projects
+  - Skills & Experience
+  - Publications
+  - Hobbies (Gardening, Cooking, Travelling)
+- Deployed with **Render**
 
 ---
 
-## 📂 Repository Structure
+## 🛠️ Tech Stack
+- **Frontend:** HTML5, CSS3, JavaScript (ES6), Font Awesome
+- **Backend:** Node.js, Express
+- **Hosting:** Render
+- **Email API:** Resend
+
+---
+
+## 📂 Folder Structure
