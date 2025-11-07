@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&family=Dancing+Script:wght@600&display=swap');
+
+:root {
+    --primary: #1c2a39;
+    --secondary: #9b59b6;
+    --accent: #E67E22;
+    --bg-dark: rgba(0, 0, 0, 0.7);
+    --text-light: #fff;
+}
+
+/* =======================
+   Global
+======================= */
+
+body {
+    margin: 0;
+    padding-top: 70px;
+    font-family: 'Inter', sans-serif;
+    background: url("/images/sydney.jpg") no-repeat center bottom/cover fixed;
+    color: #fff;
+    line-height: 1.6;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* =======================
+   Navbar
+======================= */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: rgba(0, 33, 71, 0.9);
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+. navbar {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent);
+}
+
+/* =======================
+   Hero
+======================= */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: var(--text-light);
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("/images/sydney_bridge.jpg") center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.6rem;
+    margin-top: 10px;
+}
+
+/* =======================
+   Sections layout
+======================= */
+
+section {
+    padding: 60px 20px;
+    margin: 40px auto;
+    border-radius: 12px;
+    max-width: 1200px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* =======================
+   About
+======================= */
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-img img {
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.about-img .caption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #ddd;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+/* =======================
+   Portfolio Grid
+======================= */
+
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #fff;
+    color: #333;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.github-link {
+    color: #555;
+    font-size: 24px;
+    transition: 0.2s;
+}
+
+.github-link:hover {
+    color: #000;
+    transform: scale(1.2);
+}
+
+/* =======================
+   Hobbies Gallery
+======================= */
+
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.hobby-card {
+    background: #fff;
+    color: #111;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-gallery img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* =======================
+   Contact Form
+======================= */
+
+#contact {
+    text-align: center;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+#contact button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: var(--accent);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#contact button:hover {
+    transform: scale(1.05);
+    background: #cf640e;
+}
+
+.contact-social {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.contact-social a {
+    color: var(--accent);
+    transition: 0.3s;
+}
+
+.contact-social a:hover {
+    color: white;
+}
+
+/* =======================
+   Responsive
+======================= */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+}

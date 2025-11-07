@@ -1,0 +1,35 @@
+# Environment variables
+.env
+.env.* 
+!.env.example
+
+
+# Logs
+logs
+*.log
+messages.log
+
+
+# Node.js dependencies
+node_modules/
+.pnpm-store/
+package-lock.json
+yarn.lock
+
+
+# Build output
+dist/
+build/
+.next/
+out/
+.vercel/
+.cache/
+# OS-specific
+.DS_Store
+Thumbs.db
+
+
+# IDE/editor junk
+..vscode/
+.idea/
+*.swp
