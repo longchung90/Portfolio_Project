@@ -30,8 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Use your API subdomain in production, fallback to local in dev
             const API_BASE = window.location.hostname.includes("lcportfolio.org")
-                ? "https://api.lcportfolio.org"
-                : "http://localhost:3000";
+                ? "https://www.api.lcportfolio.org"
+                : "http://localhost:5000";
+
 
             const res = await fetch(`${API_BASE}/api/contact`, {
                 method: "POST",
