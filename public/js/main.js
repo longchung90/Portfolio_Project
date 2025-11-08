@@ -39,7 +39,7 @@ app.post("/api/contact", async (req, res) => {
 
         await resend.emails.send({
             from: "Portfolio Contact <no-reply@lcportfolio.org>",
-            to: "longchung90@gmail.com",
+            to: "chunglonghoa@gmail.com",
             subject: `📬 Message from ${name}`,
             html: `
         <p><strong>Name:</strong> ${name}</p>
