@@ -24,8 +24,9 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
     : [
         "https://www.lcportfolio.org",
         "https://api.lcportfolio.org",
-        ",
+        "http://localhost:3000"
     ];
+
 
 const corsOptions = {
     origin: (origin, callback) => {
