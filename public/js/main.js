@@ -9,13 +9,10 @@ const app = express();
 app.use(express.json());
 
 // ===== CORS =====
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-    ? process.env.ALLOWED_ORIGINS.split(",")
-    : [
-        "https://www.lcportfolio.org",
-        "https://api.lcportfolio.org",
-        "http://localhost:3000",
-    ];
+const API_BASE = window.location.hostname.includes("lcportfolio.org")
+    ? "https://api.lcportfolio.org"
+    : "http://localhost:4000";
+
 
 const corsOptions = {
     origin: (origin, callback) => {
