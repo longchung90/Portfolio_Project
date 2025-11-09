@@ -20,13 +20,15 @@ const __dirname = path.dirname(__filename);
 // ===============================
 // 🌍 Allowed Origins (CORS)
 // ===============================
-const allowedOrigins = process.env.ALLOWED_ORIGINS
+cconst allowedOrigins = process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(",")
     : [
         "https://www.lcportfolio.org",
         "https://api.lcportfolio.org",
         "http://localhost:3000",
+        "http://localhost:4000"
     ];
+
 
 const corsOptions = {
     origin: (origin, callback) => {

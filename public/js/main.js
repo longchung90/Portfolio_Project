@@ -11,7 +11,7 @@ app.use(express.json());
 // ===== CORS =====
 const API_BASE = window.location.hostname.includes("lcportfolio.org")
     ? "https://api.lcportfolio.org"
-    : "http://localhost:4000";
+    : "http://localhost:3000";
 
 
 const corsOptions = {
