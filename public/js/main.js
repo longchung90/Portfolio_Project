@@ -34,22 +34,18 @@ app.post("/api/contact", async (req, res) => {
         if (!name || !email || !message)
             return res.status(400).json({ success: false, error: "Missing fields" });
 
-        await resend.emails.send({
-            from: "Portfolio Contact <no-reply@lcportfolio.org>",
-            to: "chunglonghoa@gmail.com",
-            subject: `📬 Message from ${name}`,
-            html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong><br>${message}</p>
-      `,
+        await fetch(`${API_BASE}/api/contact`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message }),
         });
+    });
 
-        res.json({ success: true });
+res.json({ success: true });
     } catch (error) {
-        console.error("❌ Email send error:", error);
-        res.status(500).json({ success: false, error: error.message });
-    }
+    console.error("❌ Email send error:", error);
+    res.status(500).json({ success: false, error: error.message });
+}
 });
 
 // ===== Start server =====
