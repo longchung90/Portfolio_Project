@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 // ===============================
 // 🌍 Allowed Origins (CORS)
 // ===============================
-cconst allowedOrigins = process.env.ALLOWED_ORIGINS
+const allowedOrigins = process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(",")
     : [
         "https://www.lcportfolio.org",
