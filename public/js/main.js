@@ -9,9 +9,7 @@ const app = express();
 app.use(express.json());
 
 // ===== CORS =====
-const API_BASE = window.location.hostname.includes("lcportfolio.org")
-    ? "https://api.lcportfolio.org"
-    : "http://localhost:4000";
+const API_BASE = "https://api.lcportfolio.org";
 
 
 const corsOptions = {
