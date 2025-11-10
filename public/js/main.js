@@ -38,21 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ name, email, message }),
             });
 
-            // ✅ Always read the JSON body
+            // ✅ read JSON body first
             const data = await response.json();
 
+            // ✅ check both network + backend success
             if (response.ok && data.success) {
                 statusDiv.innerText = "✅ Message sent successfully!";
                 statusDiv.style.color = "lightgreen";
                 form.reset();
             } else {
-                console.error("❌ Backend response error:", data);
+                console.error("Backend error:", data);
                 statusDiv.innerText = "❌ Failed to send message.";
                 statusDiv.style.color = "red";
             }
         } catch (err) {
-            console.error("❌ Network or parsing error:", err);
+            console.error("Network error:", err);
             statusDiv.innerText = "⚠️ Network error. Please try again.";
             statusDiv.style.color = "red";
         }
+
 
