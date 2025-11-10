@@ -38,23 +38,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ name, email, message }),
             });
 
+            // ✅ Always read the JSON body
             const data = await response.json();
 
-            if (data.success) {
+            if (response.ok && data.success) {
                 statusDiv.innerText = "✅ Message sent successfully!";
                 statusDiv.style.color = "lightgreen";
                 form.reset();
             } else {
+                console.error("❌ Backend response error:", data);
                 statusDiv.innerText = "❌ Failed to send message.";
                 statusDiv.style.color = "red";
             }
         } catch (err) {
-            console.error("❌ Contact form error:", err);
+            console.error("❌ Network or parsing error:", err);
             statusDiv.innerText = "⚠️ Network error. Please try again.";
             statusDiv.style.color = "red";
-        } finally {
-            button.disabled = false;
-            button.innerText = "Send";
         }
-    });
-});
+
