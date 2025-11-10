@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const statusDiv = document.getElementById("form-status");
 
+
     if (!form) {
         console.warn("⚠️ contactForm not found in DOM");
         return;
