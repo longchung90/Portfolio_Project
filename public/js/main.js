@@ -37,13 +37,13 @@ app.post("/api/contact", async (req, res) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, message }),
         });
-    });
 
-res.json({ success: true });
+
+        res.json({ success: true });
     } catch (error) {
-    console.error("❌ Email send error:", error);
-    res.status(500).json({ success: false, error: error.message });
-}
+        console.error("❌ Email send error:", error);
+        res.status(500).json({ success: false, error: error.message });
+    }
 });
 
 // ===== Start server =====
