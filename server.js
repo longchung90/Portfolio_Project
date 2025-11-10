@@ -27,7 +27,7 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
         "https://lcportfolio.org",
         "https://api.lcportfolio.org",
         "https://portfolio-website-project-1io7.onrender.com", // Render fallback
-        "http://localhost:3000", // local dev
+        "http://localhost:3000", // Local dev
     ];
 
 const corsOptions = {
@@ -42,13 +42,13 @@ const corsOptions = {
     credentials: true,
 };
 
+// ✅ Apply CORS before routes
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // 🔥 important for preflight
+app.options("*", cors(corsOptions)); // Handles preflight requests
 app.use(express.json());
 
-
 // ===============================
-// 🗂 Static Frontend
+// 🗂 Static Frontend (optional)
 // ===============================
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -62,10 +62,9 @@ app.post("/api/contact", async (req, res) => {
         const { name, email, message } = req.body;
 
         if (!name || !email || !message) {
-            return res.status(400).json({
-                success: false,
-                error: "Please fill in all required fields.",
-            });
+            return res
+                .status(400)
+                .json({ success: false, error: "Please fill in all required fields." });
         }
 
         // Send email via Resend
@@ -81,7 +80,9 @@ app.post("/api/contact", async (req, res) => {
         });
 
         console.log("✅ Email sent successfully from contact form.");
-        res.status(200).json({ success: true, message: "Message sent successfully!" });
+        res
+            .status(200)
+            .json({ success: true, message: "Message sent successfully!" });
     } catch (error) {
         console.error("❌ Error sending email:", error);
         res.status(500).json({ success: false, error: "Failed to send message." });
