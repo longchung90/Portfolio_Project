@@ -12,6 +12,7 @@ app.use(express.json());
 const API_BASE = "https://api.lcportfolio.org";
 
 
+
 const corsOptions = {
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) callback(null, true);
