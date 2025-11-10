@@ -26,11 +26,9 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
         "https://www.lcportfolio.org",
         "https://lcportfolio.org",
         "https://api.lcportfolio.org",
-        "https://portfolio-project-jt1h.onrender.com",
-        "http://localhost:3000",
+        "https://portfolio-website-project-1io7.onrender.com", // Render fallback
+        "http://localhost:3000", // local dev
     ];
-
-
 
 const corsOptions = {
     origin: (origin, callback) => {
@@ -45,7 +43,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // 🔥 important for preflight
 app.use(express.json());
+
 
 // ===============================
 // 🗂 Static Frontend
