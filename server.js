@@ -20,15 +20,12 @@ const __dirname = path.dirname(__filename);
 // ===============================
 // 🌍 Allowed Origins (CORS)
 // ===============================
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-    ? process.env.ALLOWED_ORIGINS.split(",")
-    : [
-        "https://www.lcportfolio.org",
-        "https://lcportfolio.org",
-        "https://api.lcportfolio.org",
-        "https://portfolio-website-project-1io7.onrender.com", // Render fallback
-        "http://localhost:3000", // Local dev
-    ];
+import cors from "cors";
+
+const allowedOrigins = [
+    "https://lcportfolio.org",
+    "https://www.lcportfolio.org",
+];
 
 const corsOptions = {
     origin: (origin, callback) => {
@@ -41,6 +38,9 @@ const corsOptions = {
     },
     credentials: true,
 };
+
+app.use(cors(corsOptions));
+
 
 // ✅ Apply CORS before routes
 app.use(cors(corsOptions));
