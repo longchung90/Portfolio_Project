@@ -1,3 +1,5 @@
+
+
 // =======================
 // Contact Form Handler
 // =======================
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.disabled = true;
         button.innerText = "Sending...";
 
-        const API_BASE = window.location.hostname.includes("lcportfolio.org")
+        const API_BASE = window.location.hostname.includes("www.lcportfolio.org")
             ? "https://api.lcportfolio.org"
             : "http://localhost:3000";
 

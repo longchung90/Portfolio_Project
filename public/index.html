@@ -524,63 +524,6 @@
         </section>
 
 
-        <script>
-            document.getElementById("contactForm").addEventListener("submit", async (e) => {
-                e.preventDefault();
-
-                const form = e.target;
-                const statusDiv = document.getElementById("form-status");
-                const button = form.querySelector("button");
-
-                const data = {
-                    name: form.name.value.trim(),
-                    email: form.email.value.trim(),
-                    message: form.message.value.trim()
-                };
-
-                const API_BASE = window.location.hostname.includes("lcportfolio.org")
-                    ? "https://api.lcportfolio.org"
-                    : "http://localhost:3000";
-
-                try {
-                    button.disabled = true;
-                    button.innerText = "Sending...";
-
-                    const response = await fetch(`${API_BASE}/api/contact`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(data)
-                    });
-
-                    const result = await response.json();
-
-                    if (result.success) {
-                        statusDiv.innerText = "✅ Message sent successfully!";
-                        statusDiv.style.color = "limegreen";
-                        form.reset();
-                    } else {
-                        statusDiv.innerText = "❌ " + (result.error || "Failed to send");
-                        statusDiv.style.color = "red";
-                    }
-                } catch (err) {
-                    console.error("Contact form error:", err);
-                    statusDiv.innerText = "⚠️ Error sending message.";
-                    statusDiv.style.color = "red";
-                } finally {
-                    button.disabled = false;
-                    button.innerText = "Send";
-                    setTimeout(() => {
-                        statusDiv.style.transition = "opacity 1s ease";
-                        statusDiv.style.opacity = "0";
-                        setTimeout(() => {
-                            statusDiv.innerText = "";
-                            statusDiv.style.opacity = "1";
-                        }, 1000);
-                    }, 5000);
-                }
-            });
-        </script>
-
 
         <!-- Modal for image gallery -->
         <div id="imageModal" class="modal">
@@ -594,8 +537,8 @@
             <p>&copy; 2025 Long Hoa Chung</p>
         </footer>
 
-        <script src="/js/fadein.js" defer></script>
-        <script src="/js/main.js" defer></script>
+        <script src="/js/fadein.js" </script>
+            <script src="/js/contact.js"></script>
 
 
 </body>

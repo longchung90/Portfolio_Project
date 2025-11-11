@@ -1,3 +1,5 @@
+
+
 // ===============================
 // 📦 Imports & Config
 // ===============================
@@ -38,13 +40,19 @@ const corsOptions = {
     credentials: true,
 };
 
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.warn(`❌ Blocked by CORS: ${origin}`);
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true,
+};
+
 // ✅ Apply CORS before routes
-
-
-// ===============================
-// 🗂 Static Frontend (optional)
-// ===============================
-app.use(express.static(path.join(__dirname, "public")));
 
 // ===============================
 // ✉️ Contact Route (with Resend)
@@ -82,6 +90,7 @@ app.post("/api/contact", async (req, res) => {
         res.status(500).json({ success: false, error: "Failed to send message." });
     }
 });
+
 
 // ===============================
 // ⚡ Start Server
