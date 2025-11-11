@@ -1,8 +1,11 @@
 // ===============================
 // 📦 Imports & Config
 // ===============================
+// ===============================
+// 📦 Imports & Config
+// ===============================
 import express from "express";
-import cors from "cors";
+import cors from "cors"; // ✅ only once
 import path from "path";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
@@ -25,6 +28,7 @@ import cors from "cors";
 const allowedOrigins = [
     "https://lcportfolio.org",
     "https://www.lcportfolio.org",
+    "https://api.lcportfolio.org"
 ];
 
 const corsOptions = {
