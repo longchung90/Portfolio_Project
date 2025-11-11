@@ -12,6 +12,19 @@ import { Resend } from "resend";
 
 dotenv.config();
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files from 'public'
+app.use(express.static(path.join(__dirname, "public")));
+
+// Default route — for index.html
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 // ===============================
 // 🧭 Setup
 // ===============================
