@@ -1,9 +1,6 @@
 // ===============================
 // 📦 Imports & Config
 // ===============================
-// ===============================
-// 📦 Imports & Config
-// ===============================
 import express from "express";
 import cors from "cors"; // ✅ only once
 import path from "path";
@@ -23,8 +20,6 @@ const __dirname = path.dirname(__filename);
 // ===============================
 // 🌍 Allowed Origins (CORS)
 // ===============================
-import cors from "cors";
-
 const allowedOrigins = [
     "https://lcportfolio.org",
     "https://www.lcportfolio.org",
@@ -43,13 +38,8 @@ const corsOptions = {
     credentials: true,
 };
 
-app.use(cors(corsOptions));
-
-
 // ✅ Apply CORS before routes
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Handles preflight requests
-app.use(express.json());
+
 
 // ===============================
 // 🗂 Static Frontend (optional)
