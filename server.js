@@ -40,17 +40,7 @@ const corsOptions = {
     credentials: true,
 };
 
-const corsOptions = {
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.warn(`❌ Blocked by CORS: ${origin}`);
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    credentials: true,
-};
+app.use(cors(corsOptions));
 
 // ✅ Apply CORS before routes
 
