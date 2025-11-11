@@ -1,4 +1,3 @@
-{
   "name": "portfolio-website",
   "version": "1.0.0",
   "description": "Portfolio website backend",
@@ -20,7 +19,7 @@
   "devDependencies": {
     "nodemon": "^3.1.4"
   }
-}{
+
   "name": "portfolio-website",
   "version": "1.0.0",
   "description": "Portfolio website backend",
@@ -42,4 +41,3 @@
   "devDependencies": {
     "nodemon": "^3.1.4"
   }
-}
