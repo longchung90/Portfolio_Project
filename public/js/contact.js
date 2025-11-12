@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const API_BASE = window.location.hostname.includes("www.lcportfolio.org")
             ? "https://api.lcportfolio.org"
-            : "http://localhost:4000";
+            : "http://localhost:10000";
 
         try {
             const response = await fetch(`${API_BASE}/api/contact`, {
