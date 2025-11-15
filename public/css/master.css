@@ -719,6 +719,20 @@ section:not(.hero) {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
 }
 
+.weather-icon {
+    width: 28px;
+    /* adjust size */
+    height: 28px;
+    object-fit: contain;
+    margin-left: 8px;
+    transition: 0.3s ease;
+}
+
+.weather-icon:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+}
+
 /* ===== Icon ===== */
 .pub-icon {
     font-size: 2rem;
