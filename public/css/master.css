@@ -795,6 +795,14 @@ section:not(.hero) {
     /* ORCID green */
 }
 
+/* Remove the line*/
+.pub-card:focus,
+.pub-card:focus-visible,
+.pub-card:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .pub-card {
@@ -999,4 +1007,40 @@ form#contactForm button:hover {
     margin-top: 12px;
     font-weight: 600;
     transition: opacity 0.4s ease;
+}
+
+/* Mobile phone adjustment for the project*/
+@media (max-width: 768px) {
+
+    .project-experience-content li {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+        text-align: center;
+    }
+
+    .project-experience-content i {
+        margin: 0 auto;
+    }
+
+    .project-experience-content b {
+        text-align: center;
+    }
+
+    .project-experience-content li span {
+        text-align: center;
+    }
+
+    .project-item {
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+/*for the background*/
+@media (max-width: 768px) {
+    #projects {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        background: rgba(0, 0, 0, 0.55);
+    }
 }
