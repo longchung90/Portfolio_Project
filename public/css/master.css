@@ -1044,3 +1044,15 @@ form#contactForm button:hover {
         background: rgba(0, 0, 0, 0.55);
     }
 }
+
+/*over riding icon color*/
+/* Force all icons to use the same gold theme */
+.project-header i,
+.github-link i,
+.weather-link i,
+.project-experience-content i,
+.pub-icon,
+.hobby-card i,
+.contact-social a i {
+    color: #f7d36a !important;
+}
