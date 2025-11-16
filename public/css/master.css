@@ -719,16 +719,6 @@ section:not(.hero) {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
 }
 
-.weather-icon {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease;
-}
-
-.weather-link:hover .weather-icon {
-    transform: scale(1.1);
-}
-
 /* ===== Icon ===== */
 .pub-icon {
     font-size: 2rem;
