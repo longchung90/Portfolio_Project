@@ -1056,3 +1056,27 @@ form#contactForm button:hover {
 .contact-social a i {
     color: #f7d36a !important;
 }
+
+/* Hide modal by default */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Close button fix */
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+}
