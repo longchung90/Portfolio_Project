@@ -1,8 +1,4 @@
-
-
-// =======================
-// Contact Form Handler
-// =======================
+// contact.js
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const statusDiv = document.getElementById("form-status");
@@ -29,12 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         button.disabled = true;
         button.innerText = "Sending...";
 
-        const API_BASE = window.location.hostname.includes("www.lcportfolio.org")
-            ? "https://api.lcportfolio.org"
-            : "http://localhost:10000";
-
         try {
-            const response = await fetch(`${API_BASE}/api/contact`, {
+            // ✅ Use relative path - works on same server!
+            const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, message }),
@@ -47,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 statusDiv.style.color = "limegreen";
                 form.reset();
             } else {
-                statusDiv.innerText = "❌ Failed to send message.";
+                statusDiv.innerText = `❌ ${data.error || "Failed to send message."}`;
                 statusDiv.style.color = "red";
             }
         } catch (err) {
@@ -57,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } finally {
             button.disabled = false;
             button.innerText = "Send";
+
             setTimeout(() => {
                 statusDiv.style.transition = "opacity 1s ease";
                 statusDiv.style.opacity = "0";
