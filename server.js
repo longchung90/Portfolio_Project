@@ -19,10 +19,19 @@ const __dirname = path.dirname(__filename);
 // ===============================
 app.use(cors({
     origin: [
+        // Portfolio site
         'https://lcportfolio.org',
         'https://www.lcportfolio.org',
+        'https://api.lcportfolio.org',
+
+        // Weather site
+        'https://weather-forecast-global.onrender.com',
+
+        // Local development
         'http://localhost:10000',
-        'http://localhost:3000'
+        'http://localhost:3000',
+        'http://localhost:5500',
+        'http://127.0.0.1:5500'
     ],
     methods: ['GET', 'POST'],
     credentials: true
