@@ -25,3 +25,141 @@ document.addEventListener("DOMContentLoaded", () => {
         fadeEls.forEach(el => el.classList.add("visible"));
     }
 });
+
+const plantQuizData = [
+  {
+    question: "How often should you water a succulent?",
+    options: ["Every day", "Every 1-2 weeks", "Every month", "Twice a day"],
+    correct: 1
+  },
+  {
+    question: "Which plant is known for purifying air?",
+    options: ["Cactus", "Snake Plant", "Venus Flytrap", "Bonsai"],
+    correct: 1
+  },
+  {
+    question: "What does yellow leaves usually indicate?",
+    options: ["Too much sun", "Overwatering", "Needs fertilizer", "Too cold"],
+    correct: 1
+  },
+  {
+    question: "Which plant grows from the top of a pineapple?",
+    options: ["Aloe Vera", "Bromeliad", "Pineapple Plant", "Agave"],
+    correct: 2
+  },
+  {
+    question: "What's the best light for most indoor plants?",
+    options: ["Direct sunlight", "Complete darkness", "Bright indirect light", "UV light"],
+    correct: 2
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionEl = document.getElementById('question');
+const optionsEl = document.getElementById('options');
+const nextBtn = document.getElementById('nextBtn');
+const restartBtn = document.getElementById('restartBtn');
+const scoreEl = document.getElementById('score');
+const currentQEl = document.getElementById('currentQ');
+const resultEl = document.getElementById('result');
+const quizBodyEl = document.querySelector('.quiz-body');
+const quizFooterEl = document.querySelector('.quiz-footer');
+const finalScoreEl = document.getElementById('finalScore');
+const resultMessageEl = document.getElementById('resultMessage');
+
+function loadQuestion() {
+  const q = plantQuizData[currentQuestion];
+  questionEl.textContent = q.question;
+  currentQEl.textContent = currentQuestion + 1;
+  
+  optionsEl.innerHTML = '';
+  q.options.forEach((option, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = option;
+    btn.addEventListener('click', () => selectAnswer(index));
+    optionsEl.appendChild(btn);
+  });
+  
+  nextBtn.disabled = true;
+}
+
+function selectAnswer(selected) {
+  const q = plantQuizData[currentQuestion];
+  const buttons = optionsEl.querySelectorAll('.option-btn');
+  
+  buttons.forEach((btn, index) => {
+    btn.disabled = true;
+    if (index === q.correct) {
+      btn.classList.add('correct');
+    } else if (index === selected) {
+      btn.classList.add('wrong');
+    }
+  });
+  
+  if (selected === q.correct) {
+    score++;
+    scoreEl.textContent = score;
+  }
+  
+  nextBtn.disabled = false;
+}
+
+function showResult() {
+  quizBodyEl.classList.add('hidden');
+  quizFooterEl.classList.add('hidden');
+  resultEl.classList.remove('hidden');
+  
+  finalScoreEl.textContent = score;
+  
+  if (score === 5) {
+    resultMessageEl.textContent = "🌟 Perfect! You're a plant expert!";
+  } else if (score >= 3) {
+    resultMessageEl.textContent = "🌱 Great job! You know your plants!";
+  } else {
+    resultMessageEl.textContent = "🌿 Keep learning about plants!";
+  }
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  score = 0;
+  scoreEl.textContent = 0;
+  
+  quizBodyEl.classList.remove('hidden');
+  quizFooterEl.classList.remove('hidden');
+  resultEl.classList.add('hidden');
+  
+  loadQuestion();
+}
+
+nextBtn.addEventListener('click', () => {
+  currentQuestion++;
+  if (currentQuestion < plantQuizData.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+});
+
+restartBtn.addEventListener('click', restartQuiz);
+
+// Start quiz
+loadQuestion();
+
+
+function flipCard(card) {
+  card.classList.toggle('flipped');
+}
+
+// Optional: Add keyboard accessibility
+document.querySelectorAll('.recipe-card').forEach(card => {
+  card.setAttribute('tabindex', '0');
+  card.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      flipCard(card);
+    }
+  });
+});

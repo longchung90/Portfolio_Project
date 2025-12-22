@@ -298,13 +298,13 @@
                     </div>
                 </div>
                 <!-- =========================
-                     Project 6: Weather-Forecast European Cities
+                     Project 6: Weather-Forecast Global cities
                 ========================= -->
                 <div class="project-card"
                     onclick="window.open('https://github.com/longchung90/weather_forecast','_blank')">
 
                     <div class="project-header">
-                        <h3>Weather Forecast European City</h3>
+                        <h3>Weather Forecast Global Cities</h3>
 
                         <!-- Right side icons -->
                         <div class="project-icons">
@@ -316,7 +316,7 @@
                             </a>
 
                             <!-- Live Weather App link -->
-                            <a href="https://weather-forecast-d6l3.onrender.com/" target="_blank"
+                            <a href="https://weather-forecast-global.onrender.com/" target="_blank"
                                 class="weather-link icon-delay" onclick="event.stopPropagation();">
                                 <i class="fas fa-cloud-sun"></i>
                             </a>
@@ -324,25 +324,65 @@
                     </div>
 
                     <p>
-                        A responsive API-powered web app delivering a 7-day forecast for major European
-                        cities using the 7Timer API. Includes dynamic icons and interactive UI.
+                        Global weather dashboard using live APIs to compare multi-day forecasts across major cities with robust data parsing and interactive visuals. If your cities of love are not listed, drop me a line from the weather site with your suggestions and I will add them in the next update!
                     </p>
 
                     <div class="project-feature">
-                        <img src="images/Eu_oil_paint.png" alt="European Cities">
+                        <img src="images/global.png" alt="Global Map with Weather Events">
+                        </div>
+                        <div class="project-images">
+                        <img src="images/banner.jpg" alt="The weather webpage frontpage">
+                        </div>
 
                         <div class="project-solution">
                             <h4>Solution</h4>
                             <p>
-                                - Integrated real-time weather data, dynamic background transitions,<br>
-                                - Beautiful template to adapt to other corners of the world
+                                - Built a robust, interactive, API-driven solution that aggregates and normalises real-time weather data for cities worldwide.<br>
+                                - Users can request unlisted cities directly through an in-app contact form, enabling dynamic expansion based on user input.
                             </p>
 
                         </div>
                     </div>
                 </div>
 
+                <!-- =========================
+                     Project 7: Falcon 9 Launch SpaceX
+                ========================= -->
+                <div class="project-card"
+                    onclick="window.open('https://github.com/longchung90/Falcon9_SpaceX','_blank')">
 
+                    <div class="project-header">
+                        <h3>Falcon 9 Launch SpaceX - Data Science Capstone project</h3>
+
+                        <!-- Right side icons -->
+                        <div class="project-icons">
+
+                            <!-- GitHub link -->
+                            <a href="https://github.com/longchung90/Falcon9_SpaceX" target="_blank"
+                                class="github-link icon-delay" onclick="event.stopPropagation();">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p>
+                       End-to-end data science project analysing SpaceX Falcon 9 launches, combining API data, EDA, and machine learning to predict landing success.
+                    </p>
+
+                    <div class="project-feature">
+                        <img src="images/falcon9.png" alt="Global Map with Weather Events">
+                    </div>
+
+                    <div class="project-solution">
+                        <h4>Solution</h4>
+                        <p>
+                                - Delivered an end-to-end data science solution integrating API data, feature engineering, and machine learning.<br>
+                                - Enabled data-driven insights and prediction of Falcon 9 first-stage landing success.
+                        </p>
+
+                        </div>
+                    </div>
+                </div>
 
             </div><!-- END .project-grid -->
 
@@ -532,7 +572,34 @@
                             <img src="images/Iris_1.png" alt="Iris">
                             <img src="images/passionfruit_1.png" alt="Passionfruit">
                         </div>
-                        <button class="quiz-btn" onclick="startPlantQuiz()">🌱 Test Your Plant Knowledge!</button>
+                        <button class="quiz-btn" onclick="startPlantQuiz()">
+                            🌱 Test Your Plant Knowledge!
+                        </button>
+                         <!-- 👇 Quiz lives HERE -->
+                        <div class="quiz-wrapper hidden" id="plantQuizWrapper">
+                            <div class="quiz-container" id="plantQuiz">
+                                <div class="quiz-header">
+                                    <h3>🌱 Test Your Plant Knowledge!</h3>
+                                <div class="score">Score: <span id="score">0</span>/5</div>
+                            </div>
+                        <div class="quiz-body">
+                            <div class="question-counter">Question <span id="currentQ">1</span>/5</div>
+                            <p class="question" id="question">Loading question...</p>
+                            
+                            <div class="options" id="options">
+                                <!-- Options will be inserted by JS -->
+                            </div>
+                        </div>
+                        <div class="quiz-footer">
+                            <button class="btn-next" id="nextBtn" disabled>Next Question</button>
+                        </div>
+                        
+                        <div class="quiz-result hidden" id="result">
+                            <h3>🎉 Quiz Complete!</h3>
+                            <p>You scored <span id="finalScore">0</span> out of 5</p>
+                            <p id="resultMessage"></p>
+                            <button class="btn-restart" id="restartBtn">Try Again</button>
+                        </div>
                     </div>
 
                     <!-- Cooking -->
@@ -550,6 +617,79 @@
                         <div class="hobby-stats">
                             <span><b>50+</b> Recipes</span>
                             <span><b>3</b> Cuisines</span>
+                        </div>
+                         <!-- Action -->
+                        <button class="recipe-btn" id="toggleRecipesBtn">
+                            🍳 View Recipes
+                        </button>
+                        <!-- 👇 Recipes live HERE -->
+                         <div class="recipe-wrapper hidden" id="recipeWrapper">
+                            <div class="recipe-section">
+                                <!-- your recipe cards HTML -->
+                                 <div class="recipe-section">
+                                    <h3>🍳 My Favorite Recipes</h3>
+                                    <p class="recipe-subtitle">Click a card to see the recipe!</p>
+                                    <div class="recipe-grid">
+                                        <div class="recipe-card" onclick="flipCard(this)">
+                                            <div class="card-inner">
+                                                <div class="card-front">
+                                                    <img src="images/cooking_1.png" alt="Roast Chicken">
+                                                    <div class="card-title">Roast Chicken</div>
+                                                    <div class="card-time">⏱️ 2 hours</div>
+                                                </div>
+                                                <div class="card-back">
+                                                    <h4>Christmas Roast Chicken</h4>
+                                                    <ul>
+                                                        <li>1 whole chicken 2.5 - 3 kg</li>
+                                                        <li>Olive oil (2 tbsp)</li>
+                                                        <li>Fresh Herbs: Thymes, Parsleys, Oreganos, Sages, Taragons, Basils). The fragrance in freshly cut herbs is exceptionally intense and that will permeate our chicken</li>
+                                                        <li>Garlic, Grated Lemon rinds, Cracked Black Pepper and Salt</li>
+                                                        <li>Your favourite root vegetables such as potatoes, carrots, parsnips, pumpkin, sweet potatoes, etc</li>
+                                                    </ul>
+                                                    <p><strong>Tip:</strong> Let it rest 10 mins before carving!</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <div class="recipe-card" onclick="flipCard(this)">
+                                        <div class="card-inner">
+                                            <div class="card-front">
+                                                <img src="images/meringue.jpg" alt="Pavlova">
+                                    <div class="card-title">Berry Pavlova</div>
+                                    <div class="card-time">⏱️ 2 hours</div>
+                                    </div>
+                                    <div class="card-back">
+                                        <h4>Berry Pavlova</h4>
+                                        <ul>
+                                            <li>4 egg whites</li>
+                                            <li>1 cup sugar</li>
+                                            <li>Whipped cream</li>
+                                            <li>Fresh berries</li>
+                                        </ul>
+                                        <p><strong>Tip:</strong> Add vinegar for chewy center!</p>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="recipe-card" onclick="flipCard(this)">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img src="images/Ricpaperrolls.jpg" alt="Spring Rolls">
+                                        <div class="card-title">Fresh Spring Rolls</div>
+                                        <div class="card-time">⏱️ 30 mins</div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h4>Fresh Spring Rolls</h4>
+                                    <ul>
+                                        <li>Rice paper</li>
+                                        <li>Shrimp or tofu</li>
+                                        <li>Rice noodles</li>
+                                        <li>Fresh herbs & veggies</li>
+                                    </ul>
+                                    <p><strong>Tip:</strong> Don't over-soak the rice paper!</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

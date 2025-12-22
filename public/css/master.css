@@ -898,7 +898,254 @@ section:not(.hero) {
 .quiz-btn:hover {
     background: #fff29c;
 }
+.quiz-container {
+  background: linear-gradient(145deg, #1a2f1a, #0d1f0d);
+  border: 1px solid #2d5a2d;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
 
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #2d5a2d;
+}
+
+.quiz-header h3 {
+  color: #7cfc00;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.score {
+  background: #2d5a2d;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #98fb98;
+  font-weight: bold;
+}
+
+.question-counter {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.question {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-btn {
+  background: #1e3d1e;
+  border: 2px solid #3d6b3d;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.option-btn:hover:not(:disabled) {
+  background: #2d5a2d;
+  border-color: #7cfc00;
+  transform: translateX(5px);
+}
+
+.option-btn.correct {
+  background: #228b22;
+  border-color: #7cfc00;
+}
+
+.option-btn.wrong {
+  background: #8b2222;
+  border-color: #ff6b6b;
+}
+
+.option-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-next, .btn-restart {
+  background: #7cfc00;
+  color: #0d1f0d;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-next:disabled {
+  background: #3d6b3d;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.btn-next:not(:disabled):hover,
+.btn-restart:hover {
+  background: #98fb98;
+  transform: scale(1.05);
+}
+
+.quiz-result {
+  text-align: center;
+  padding: 20px;
+}
+
+.quiz-result h3 {
+  color: #7cfc00;
+  font-size: 1.5rem;
+}
+
+.quiz-result p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== RECIPE SECTION ===== */
+.recipe-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.recipe-section h3 {
+  color: #ffd700;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.recipe-subtitle {
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.recipe-card {
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.recipe-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-front {
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border: 1px solid #333;
+}
+
+.card-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 16px 16px 8px;
+}
+
+.card-time {
+  color: #ffd700;
+  padding: 0 16px 16px;
+}
+
+.card-back {
+  background: linear-gradient(145deg, #3d2b00, #2a1f00);
+  border: 1px solid #ffd700;
+  transform: rotateY(180deg);
+  padding: 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-back h4 {
+  color: #ffd700;
+  margin: 0 0 16px 0;
+  font-size: 1.3rem;
+}
+
+.card-back ul {
+  color: #fff;
+  margin: 0 0 16px 0;
+  padding-left: 20px;
+}
+
+.card-back li {
+  margin-bottom: 8px;
+}
+
+.card-back p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid #5a4000;
+}
+
+/* Hover effect */
+.recipe-card:hover .card-inner {
+  transform: scale(1.02);
+}
+
+.recipe-card.flipped:hover .card-inner {
+  transform: rotateY(180deg) scale(1.02);
+}
 /* ===== CONTACT SECTION ===== */
 #contact {
     text-align: center;
