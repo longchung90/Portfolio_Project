@@ -151,6 +151,10 @@ nextBtn.addEventListener('click', () => {
   }
 });
 
+function closePlantQuiz() {
+  document.getElementById('plantQuizWrapper').classList.add('hidden');
+}
+
 restartBtn.addEventListener('click', restartQuiz);
 
 // Start quiz
@@ -170,6 +174,8 @@ document.querySelectorAll('.recipe-card').forEach(card => {
     }
   });
 });
+
+
 const recipeBtn = document.getElementById('toggleRecipesBtn');
 const recipeWrapper = document.getElementById('recipeWrapper');
 
