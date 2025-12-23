@@ -563,9 +563,11 @@
                     <div class="hobby-card fade-in">
                         <h3>🌹 Gardening</h3>
                         <p>Gardening connects me to nature through flowers, fruit trees, and seasonal plants.</p>
+                        
                         <div class="hobby-feature">
                             <img src="images/Rose_red_1.png" alt="Rose main">
                         </div>
+
                         <div class="hobby-gallery">
                             <img src="images/Bluemoon_1.png" alt="Bluemoon">
                             <img src="images/lavenders_1.png" alt="Lavender">
@@ -573,34 +575,39 @@
                             <img src="images/Iris_1.png" alt="Iris">
                             <img src="images/passionfruit_1.png" alt="Passionfruit">
                         </div>
+
                         <button class="quiz-btn" onclick="startPlantQuiz()">
                             🌱 Test Your Plant Knowledge!
                         </button>
+
                          <!-- 👇 Quiz lives HERE -->
                         <div class="quiz-wrapper hidden" id="plantQuizWrapper">
                             <div class="quiz-container" id="plantQuiz">
+                                
                                 <div class="quiz-header">
                                     <h3>🌱 Test Your Plant Knowledge!</h3>
-                                <div class="score">Score: <span id="score">0</span>/5</div>
+                                    <div class="score">Score: <span id="score">0</span>/5</div>
+                                </div>
+                                
+                                <div class="quiz-body">
+                                    <div class="question-counter">
+                                        Question <span id="currentQ">1</span>/5
+                                    </div>
+
+                                <p class="question" id="question">Loading question...</p>
+                                <div class="options" id="options"></div>
                             </div>
-                        <div class="quiz-body">
-                            <div class="question-counter">Question <span id="currentQ">1</span>/5</div>
-                            <p class="question" id="question">Loading question...</p>
-                            
-                            <div class="options" id="options">
-                                <!-- Options will be inserted by JS -->
-                            </div>
-                        </div>
-                        <div class="quiz-footer">
-                            <button class="btn-next" id="nextBtn" disabled>Next Question</button>
-                        </div>
                         
-                        <div class="quiz-result hidden" id="result">
-                            <h3>🎉 Quiz Complete!</h3>
-                            <p>You scored <span id="finalScore">0</span> out of 5</p>
-                            <p id="resultMessage"></p>
-                            <button class="btn-restart" id="restartBtn">Try Again</button>
-                        </div>
+                            <div class="quiz-footer">
+                                <button class="btn-next" id="nextBtn" disabled>Next Question</button>
+                            </div>
+                        
+                            <div class="quiz-result hidden" id="result">
+                                <h3>🎉 Quiz Complete!</h3>
+                                <p>You scored <span id="finalScore">0</span> out of 5</p>
+                                <p id="resultMessage"></p>
+                                <button class="btn-restart" id="restartBtn">Try Again</button>
+                            </div>
                     
 
                     <!-- Cooking -->

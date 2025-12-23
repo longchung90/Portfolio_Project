@@ -26,6 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+function startPlantQuiz() {
+  const wrapper = document.getElementById('plantQuizWrapper');
+  wrapper.classList.remove('hidden');
+  wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 const plantQuizData = [
   {
     question: "How often should you water a succulent?",
