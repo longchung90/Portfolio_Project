@@ -493,10 +493,17 @@ section:not(.hero) {
 
 .project-solution h4 {
     background: linear-gradient(to right, #d4af37, #f7d36a, #d4af37);
+
+    /* Standard property */
+    background-clip: text;
+
+    /* WebKit fallback */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
     font-weight: 700;
 }
+
 
 .github-link i {
     font-size: 1.4rem;
@@ -833,6 +840,18 @@ section:not(.hero) {
     transform: translateY(-6px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+.hobby-card .quiz-wrapper {
+  width: 100%;
+}
+
+.hobby-card .quiz-container {
+  max-width: 100%;
+  margin: 20px 0;
+}
+.hobby-card {
+  display: flex;
+  flex-direction: column;
+}
 
 /* Headings */
 .hobby-card h3 {
@@ -1027,6 +1046,7 @@ section:not(.hero) {
 .hidden {
   display: none;
 }
+
 
 /* ===== RECIPE SECTION ===== */
 .recipe-section {

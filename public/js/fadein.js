@@ -170,3 +170,12 @@ document.querySelectorAll('.recipe-card').forEach(card => {
     }
   });
 });
+const recipeBtn = document.getElementById('toggleRecipesBtn');
+const recipeWrapper = document.getElementById('recipeWrapper');
+
+if (recipeBtn && recipeWrapper) {
+  recipeBtn.addEventListener('click', () => {
+    recipeWrapper.classList.toggle('hidden');
+    recipeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
