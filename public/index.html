@@ -636,22 +636,23 @@
                             🍳 View Recipes
                         </button>
                         <!-- 👇 Recipes live HERE -->
-                         <div class="recipe-wrapper hidden" id="recipeWrapper">
+                        <div class="recipe-wrapper hidden" id="recipeWrapper">
                             <div class="recipe-section">
                                 <!-- your recipe cards HTML -->
                                  <div class="recipe-section">
                                     <h3>🍳 My Favorite Recipes</h3>
-                                    <p class="recipe-subtitle">Click a card to see the recipe!</p>
-                                    <div class="recipe-grid">
+                                    <button class="recipe-close" onclick="closeRecipes()">✕</button>
+                                </div>
+                                <div class="recipe-grid">
                                         <div class="recipe-card" onclick="flipCard(this)">
                                             <div class="card-inner">
                                                 <div class="card-front">
                                                     <img src="images/cooking_1.png" alt="Roast Chicken">
-                                                    <div class="card-title">Roast Chicken</div>
-                                                    <div class="card-time">⏱️ 2 hours</div>
+                                                    <div class="card-title">Garden-Herb Infused Chicken Roasted In A Bag</div>
+                                                    <div class="card-time">⏱️ 2.5 hours</div>
                                                 </div>
                                                 <div class="card-back">
-                                                    <h4>Christmas Roast Chicken</h4>
+                                                    <h4>Garden-Herb Infused Chicken Roasted In A Bag</h4>
                                                     <ul>
                                                         <li>1 whole chicken 2.5 - 3 kg</li>
                                                         <li>Olive oil (2 tbsp)</li>
@@ -664,43 +665,15 @@
                                             </div>
                                         </div>
 
-                                    <div class="recipe-card" onclick="flipCard(this)">
-                                        <div class="card-inner">
-                                            <div class="card-front">
-                                                <img src="images/meringue.jpg" alt="Pavlova">
-                                    <div class="card-title">Berry Pavlova</div>
-                                    <div class="card-time">⏱️ 2 hours</div>
+                                    <div class="recipe-card coming-soon>
+                                       <img src="images/meringue.jpg" alt="Pavlova">
+                                       <div class="coming-soon-overlay">🍽️ Coming Soon</div>
                                     </div>
-                                    <div class="card-back">
-                                        <h4>Berry Pavlova</h4>
-                                        <ul>
-                                            <li>4 egg whites</li>
-                                            <li>1 cup sugar</li>
-                                            <li>Whipped cream</li>
-                                            <li>Fresh berries</li>
-                                        </ul>
-                                        <p><strong>Tip:</strong> Add vinegar for chewy center!</p>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="recipe-card" onclick="flipCard(this)">
-                                <div class="card-inner">
-                                    <div class="card-front">
+
+                                    <div class="recipe-card coming-soon>
                                         <img src="images/Ricpaperrolls.jpg" alt="Spring Rolls">
-                                        <div class="card-title">Fresh Spring Rolls</div>
-                                        <div class="card-time">⏱️ 30 mins</div>
+                                        <div class="coming-soon-overlay">🍽️ Coming Soon</div>
                                     </div>
-                                </div>
-                                <div class="card-back">
-                                    <h4>Fresh Spring Rolls</h4>
-                                    <ul>
-                                        <li>Rice paper</li>
-                                        <li>Shrimp or tofu</li>
-                                        <li>Rice noodles</li>
-                                        <li>Fresh herbs & veggies</li>
-                                    </ul>
-                                    <p><strong>Tip:</strong> Don't over-soak the rice paper!</p>
                                 </div>
                             </div>
                         </div>

@@ -185,11 +185,20 @@ if (recipeBtn && recipeWrapper) {
     recipeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
+document.getElementById('toggleRecipesBtn')
+  .addEventListener('click', () => {
+    document.getElementById('recipeWrapper').classList.remove('hidden');
+  });
+
+function closeRecipes() {
+  document.getElementById('recipeWrapper').classList.add('hidden');
+}
+
 
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
-document.querySelectorAll('.gallery-grid img').forEach(img => {
+document.querySelectorAll('.hobby-gallery img').forEach(img => {
   img.addEventListener('click', () => {
     lightboxImg.src = img.src;
     lightbox.classList.remove('hidden');

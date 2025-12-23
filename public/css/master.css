@@ -915,7 +915,7 @@ section:not(.hero) {
     gap: 10px;
     margin-top: 10px;
 }
-.gallery-grid img {
+.hobby-gallery img {
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }
@@ -1118,6 +1118,41 @@ section:not(.hero) {
 .recipe-subtitle {
   color: #888;
   margin-bottom: 30px;
+}
+.recipe-wrapper {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.recipe-wrapper.hidden {
+  display: none;
+}
+
+.recipe-section {
+  background: linear-gradient(145deg, #1e1e1e, #0f0f0f);
+  border-radius: 18px;
+  padding: 32px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.recipe-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #ffd700;
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .recipe-grid {
