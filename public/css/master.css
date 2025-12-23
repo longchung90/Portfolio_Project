@@ -886,7 +886,7 @@ section:not(.hero) {
 }
 
 /* Featured image */
-..hobby-feature {
+.hobby-feature {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -965,19 +965,14 @@ section:not(.hero) {
 }
 
 .quiz-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #2d5a2d;
-}
-.quiz-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+  padding-right: 36px; /* space for X */
   position: relative;
 }
+
 
 .quiz-close {
   position: absolute;
@@ -990,6 +985,7 @@ section:not(.hero) {
   cursor: pointer;
   line-height: 1;
 }
+
 
 .quiz-close:hover {
   color: #ffffff;
@@ -1133,10 +1129,10 @@ section:not(.hero) {
 }
 
 .recipe-card {
-  height: 350px;
+  min-height: 350px;
   perspective: 1000px;
-  cursor: pointer;
 }
+
 
 .card-inner {
   position: relative;
@@ -1215,6 +1211,10 @@ section:not(.hero) {
   margin: 0;
   padding-top: 12px;
   border-top: 1px solid #5a4000;
+}
+
+.card-back {
+  overflow-y: auto;
 }
 
 /* Hover effect */
@@ -1405,4 +1405,24 @@ form#contactForm button:hover {
     font-weight: bold;
     cursor: pointer;
     z-index: 10000;
+}
+/* Lightbox styles */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+.lightbox.hidden {
+  display: none;
 }
