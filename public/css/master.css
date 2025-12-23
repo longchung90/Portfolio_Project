@@ -840,18 +840,43 @@ section:not(.hero) {
     transform: translateY(-6px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-.hobby-card .quiz-wrapper {
-  width: 100%;
-}
-
-.hobby-card .quiz-container {
-  max-width: 100%;
-  margin: 20px 0;
-}
 .hobby-card {
   display: flex;
   flex-direction: column;
 }
+.quiz-wrapper {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.quiz-wrapper.hidden {
+  display: none;
+}
+.quiz-container {
+  background: linear-gradient(145deg, #1a2f1a, #0d1f0d);
+  border: 1px solid #2d5a2d;
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.quiz-close {
+  background: none;
+  border: none;
+  color: #98fb98;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+
 
 /* Headings */
 .hobby-card h3 {
