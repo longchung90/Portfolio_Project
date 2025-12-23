@@ -555,130 +555,132 @@
 
 
             <!-- ===== HOBBIES ===== -->
-            <section id="hobbies" class="fade-in">
-                <h2>Hobbies</h2>
-                <div class="hobby-grid">
+<section id="hobbies" class="fade-in">
+    <h2>Hobbies</h2>
+    <div class="hobby-grid">
 
-                    <!-- Gardening -->
-                    <div class="hobby-card fade-in">
-                        <h3>🌹 Gardening</h3>
-                        <p>Gardening connects me to nature through flowers, fruit trees, and seasonal plants.</p>
-                        
-                        <div class="hobby-feature">
-                            <img src="images/Rose_red_1.png" alt="Rose main">
-                        </div>
+        <!-- Gardening -->
+        <div class="hobby-card fade-in">
+            <h3>🌹 Gardening</h3>
+            <p>Gardening connects me to nature through flowers, fruit trees, and seasonal plants.</p>
+            
+            <div class="hobby-feature">
+                <img src="images/Rose_red_1.png" alt="Rose main">
+            </div>
 
-                        <div class="hobby-gallery">
-                            <img src="images/Bluemoon_1.png" alt="Bluemoon">
-                            <img src="images/lavenders_1.png" alt="Lavender">
-                            <img src="images/apricot_1.png" alt="Apricot">
-                            <img src="images/Iris_1.png" alt="Iris">
-                            <img src="images/passionfruit_1.png" alt="Passionfruit">
-                        </div>
+            <div class="hobby-gallery">
+                <img src="images/Bluemoon_1.png" alt="Bluemoon">
+                <img src="images/lavenders_1.png" alt="Lavender">
+                <img src="images/apricot_1.png" alt="Apricot">
+                <img src="images/Iris_1.png" alt="Iris">
+                <img src="images/passionfruit_1.png" alt="Passionfruit">
+            </div>
 
-                        <button class="quiz-btn" onclick="startPlantQuiz()">
-                            🌱 Test Your Plant Knowledge!
-                        </button>
+            <button class="quiz-btn" onclick="startPlantQuiz()">
+                🌱 Test Your Plant Knowledge!
+            </button>
 
-                         <!-- 👇 Quiz lives HERE -->
-                        <div class="quiz-wrapper hidden" id="plantQuizWrapper">
-                            <div class="quiz-container" id="plantQuiz">
-                                
-                                <div class="quiz-header">
-                                    <h3>🌱 Test Your Plant Knowledge!</h3>
-                                    <div class="score">Score: <span id="score">0</span>/5</div>
-                                    <button class="quiz-close" onclick="closePlantQuiz()" aria-label="Close quiz">✕</button>
-                                </div>
-
-                                
-                                <div class="quiz-body">
-                                    <div class="question-counter">
-                                        Question <span id="currentQ">1</span>/5
-                                    </div>
-                                    <p class="question" id="question">Loading question...</p>
-                                    <div class="options" id="options"></div>
-                                 </div>
-                                 
-                                 <div class="quiz-footer">
-                                    <button class="btn-next" id="nextBtn" disabled>Next Question</button>
-                                </div>
-
-                            
-                                <div class="quiz-result hidden" id="result">
-                                    <h3>🎉 Quiz Complete!</h3>
-                                    <p>You scored <span id="finalScore">0</span> out of 5</p>
-                                    <p id="resultMessage"></p>
-                                    <button class="btn-restart" id="restartBtn">Try Again</button>
-                                </div>
-                            </div><!-- quiz-container -->
-                        </div><!-- quiz-wrapper -->
-                    </div> 
+            <!-- Quiz lives HERE -->
+            <div class="quiz-wrapper hidden" id="plantQuizWrapper">
+                <div class="quiz-container" id="plantQuiz">
                     
-
-                    <!-- Cooking -->
-                    <div class="hobby-card fade-in">
-                        <h3>🍳 Cooking</h3>
-                        <p>Experimenting in the kitchen is one of my favourite creative outlets.</p>
-                        <div class="hobby-feature landscape">
-                            <img src="images/eggs_1.jpg" alt="Eggs main">
-                        </div>
-
-                        <div class="hobby-gallery">
-                            <img src="images/cooking_1.png" alt="Vietnamese Cuisine">
-                            <img src="images/meringue.jpg" alt="Meringue">
-                            <img src="images/Ricpaperrolls.jpg" alt="Rice Paper Rolls">
-                        </div>
-                        <div class="hobby-stats">
-                            <span><b>50+</b> Recipes</span>
-                            <span><b>3</b> Cuisines</span>
-                        </div>
-                    </div><!-- End cooking hobby card -->
-
-                      <!-- ===== RECIPE MODAL ===== -->
-                <div class="recipe-wrapper hidden" id="recipeWrapper">
-                    <div class="recipe-section">
-                        <button class="recipe-close" onclick="closeRecipes()">✕</button>
-
-                         <h3>🍳 My Favourite Recipes</h3>
-                        <p class="recipe-subtitle">Recipes are coming soon.</p>
-
-                        <div class="recipe-grid">
-                            <div class="recipe-card coming-soon">
-                                <img src="images/cooking_1.png" alt="Roast Chicken">
-                                <div class="coming-soon-overlay">🍽️ Coming soon</div>
-                            </div>
-
-                            <div class="recipe-card coming-soon">
-                                <img src="images/meringue.jpg" alt="Berry Pavlova">
-                                <div class="coming-soon-overlay">🍰 Coming soon</div>
-                            </div>
-
-                            <div class="recipe-card coming-soon">
-                                <img src="images/Ricpaperrolls.jpg" alt="Ricepaper Rolls">
-                                <div class="coming-soon-overlay">🥬 Coming soon</div>
-                            </div>
-                        </div>
-                    </div>      
-
-
-                    <!-- Travelling -->
-                    <div class="hobby-card fade-in">
-                        <h3>🚗 Travelling</h3>
-                        <p>Road trips recharge my energy and inspire fresh perspectives.</p>
-                        <div class="hobby-feature landscape">
-                            <img src="images/Cairn.jpg" alt="Cairn main">
-                        </div>
-                        <div class="hobby-gallery">
-                            <img src="images/road_1.png" alt="Scenic Drive">
-                            <img src="images/wattle_1.jpg" alt="Wattle">
-                        </div>
-                        <div class="hobby-stats">
-                            <span><b>15+</b> Destinations</span>
-                            <span><b>5000+</b> KM Travelled</span>
-                        </div>
+                    <div class="quiz-header">
+                        <h3>🌱 Test Your Plant Knowledge!</h3>
+                        <div class="score">Score: <span id="score">0</span>/5</div>
+                        <button class="quiz-close" onclick="closePlantQuiz()" aria-label="Close quiz">✕</button>
                     </div>
+                    
+                    <div class="quiz-body">
+                        <div class="question-counter">
+                            Question <span id="currentQ">1</span>/5
+                        </div>
+                        <p class="question" id="question">Loading question...</p>
+                        <div class="options" id="options"></div>
+                    </div>
+                    
+                    <div class="quiz-footer">
+                        <button class="btn-next" id="nextBtn" disabled>Next Question</button>
+                    </div>
+                    
+                    <div class="quiz-result hidden" id="result">
+                        <h3>🎉 Quiz Complete!</h3>
+                        <p>You scored <span id="finalScore">0</span> out of 5</p>
+                        <p id="resultMessage"></p>
+                        <button class="btn-restart" id="restartBtn">Try Again</button>
+                    </div>
+                </div><!-- END quiz-container -->
+            </div><!-- END quiz-wrapper -->
+        </div><!-- END Gardening hobby-card -->
+        
+
+        <!-- Cooking -->
+        <div class="hobby-card fade-in">
+            <h3>🍳 Cooking</h3>
+            <p>Experimenting in the kitchen is one of my favourite creative outlets.</p>
+            <div class="hobby-feature landscape">
+                <img src="images/eggs_1.jpg" alt="Eggs main">
+            </div>
+
+            <div class="hobby-gallery">
+                <img src="images/cooking_1.png" alt="Vietnamese Cuisine">
+                <img src="images/meringue.jpg" alt="Meringue">
+                <img src="images/Ricpaperrolls.jpg" alt="Rice Paper Rolls">
+            </div>
+            <div class="hobby-stats">
+                <span><b>50+</b> Recipes</span>
+                <span><b>3</b> Cuisines</span>
+            </div>
+        </div><!-- END Cooking hobby-card -->
+
+
+        <!-- Travelling -->
+        <div class="hobby-card fade-in">
+            <h3>🚗 Travelling</h3>
+            <p>Road trips recharge my energy and inspire fresh perspectives.</p>
+            <div class="hobby-feature landscape">
+                <img src="images/Cairn.jpg" alt="Cairn main">
+            </div>
+            <div class="hobby-gallery">
+                <img src="images/road_1.png" alt="Scenic Drive">
+                <img src="images/wattle_1.jpg" alt="Wattle">
+            </div>
+            <div class="hobby-stats">
+                <span><b>15+</b> Destinations</span>
+                <span><b>5000+</b> KM Travelled</span>
+            </div>
+        </div><!-- END Travelling hobby-card -->
+
+    </div><!-- END hobby-grid -->
+
+
+    <!-- ===== RECIPE MODAL (moved outside hobby-grid) ===== -->
+    <div class="recipe-wrapper hidden" id="recipeWrapper">
+        <div class="recipe-section">
+            <button class="recipe-close" onclick="closeRecipes()">✕</button>
+
+            <h3>🍳 My Favourite Recipes</h3>
+            <p class="recipe-subtitle">Recipes are coming soon.</p>
+
+            <div class="recipe-grid">
+                <div class="recipe-card coming-soon">
+                    <img src="images/cooking_1.png" alt="Roast Chicken">
+                    <div class="coming-soon-overlay">🍽️ Coming soon</div>
                 </div>
-            </section>
+
+                <div class="recipe-card coming-soon">
+                    <img src="images/meringue.jpg" alt="Berry Pavlova">
+                    <div class="coming-soon-overlay">🍰 Coming soon</div>
+                </div>
+
+                <div class="recipe-card coming-soon">
+                    <img src="images/Ricpaperrolls.jpg" alt="Ricepaper Rolls">
+                    <div class="coming-soon-overlay">🥬 Coming soon</div>
+                </div>
+            </div>
+        </div><!-- END recipe-section -->
+    </div><!-- END recipe-wrapper -->
+
+</section><!-- END hobbies section -->
 
 
 
