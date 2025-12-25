@@ -90,6 +90,9 @@ function loadQuestion() {
     optionsEl.appendChild(btn);
   });
   
+ nextBtn.disabled = true;
+}
+  
   nextBtn.disabled = true;
 }
 
