@@ -4,6 +4,7 @@
   "description": "Long Hoa Chung portfolio backend",
   "main": "server.js",
   "type": "module",
+  "private": true,
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
@@ -20,9 +21,4 @@
   "engines": {
     "node": ">=18.x"
   }
-}
-"scripts": {
-  "start": "node server.js",
-  "dev": "nodemon server.js",
-  "health": "node -e \"console.log('OK')\""
 }

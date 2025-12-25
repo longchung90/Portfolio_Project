@@ -80,6 +80,9 @@ app.post("/api/contact", async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 });
+app.get("/health", (req, res) => {
+    res.status(200).json({ status: "ok" });
+});
 
 // ===============================
 // 🏙️ City Request API - Weather Site
@@ -139,6 +142,11 @@ app.post("/api/city-request", async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 });
+
+if (!process.env.RESEND_API_KEY) {
+    console.error("❌ Missing RESEND_API_KEY");
+    process.exit(1);
+}
 
 // ===============================
 // 🏠 SPA Fallback - MUST BE LAST!
