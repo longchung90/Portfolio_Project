@@ -637,6 +637,14 @@ section:not(.hero) {
 .experience-role {
     margin-top: auto;
 }
+.experience-image {
+    width: 100%;
+    height: 180px;          /* pick a fixed height */
+    object-fit: cover;      /* crops instead of stretching */
+    border-radius: 12px;
+    display: block;
+}
+
 
 
 /* Card design */
