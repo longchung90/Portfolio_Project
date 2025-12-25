@@ -129,6 +129,10 @@ function showResult() {
     resultMessageEl.textContent = "🌿 Keep learning about plants!";
   }
 }
+// plantQuiz.js
+window.startPlantQuiz = function () {
+    console.log("Quiz started");
+};
 
 function restartQuiz() {
   currentQuestion = 0;
