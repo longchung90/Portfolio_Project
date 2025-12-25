@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =============================
-   PLANT QUIZ
+   PLANT QUIZ DATA
 ============================== */
 const plantQuizData = [
     {
@@ -59,46 +59,55 @@ const plantQuizData = [
     }
 ];
 
+/* =============================
+   PLANT QUIZ LOGIC
+============================== */
 let currentQuestion = 0;
 let score = 0;
 
-// DOM Elements
-const questionEl = document.getElementById('question');
-const optionsEl = document.getElementById('options');
-const nextBtn = document.getElementById('nextBtn');
-const restartBtn = document.getElementById('restartBtn');
-const scoreEl = document.getElementById('score');
-const currentQEl = document.getElementById('currentQ');
-const resultEl = document.getElementById('quizResult');
-const quizBodyEl = document.getElementById('quizBody');
-const quizFooterEl = document.getElementById('quizFooter');
-const finalScoreEl = document.getElementById('finalScore');
-const resultMessageEl = document.getElementById('resultMessage');
-
-// Start Quiz Function (called from HTML button)
 function startPlantQuiz() {
+    console.log("🌱 Starting Plant Quiz");
     const wrapper = document.getElementById('plantQuizWrapper');
-    wrapper.classList.remove('hidden');
-    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    resetQuiz();
+    if (wrapper) {
+        wrapper.classList.remove('hidden');
+        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        resetQuiz();
+    } else {
+        console.error("plantQuizWrapper not found!");
+    }
 }
 
 function resetQuiz() {
     currentQuestion = 0;
     score = 0;
-    scoreEl.textContent = score;
-    
-    quizBodyEl.classList.remove('hidden');
-    quizFooterEl.classList.remove('hidden');
-    resultEl.classList.add('hidden');
-    
+
+    const scoreEl = document.getElementById('score');
+    const quizBodyEl = document.getElementById('quizBody');
+    const quizFooterEl = document.getElementById('quizFooter');
+    const resultEl = document.getElementById('quizResult');
+
+    if (scoreEl) scoreEl.textContent = score;
+    if (quizBodyEl) quizBodyEl.classList.remove('hidden');
+    if (quizFooterEl) quizFooterEl.classList.remove('hidden');
+    if (resultEl) resultEl.classList.add('hidden');
+
     loadQuestion();
 }
 
 function loadQuestion() {
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const currentQEl = document.getElementById('currentQ');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (!questionEl || !optionsEl) {
+        console.error("Quiz elements not found!");
+        return;
+    }
+
     const q = plantQuizData[currentQuestion];
     questionEl.textContent = q.question;
-    currentQEl.textContent = currentQuestion + 1;
+    if (currentQEl) currentQEl.textContent = currentQuestion + 1;
 
     optionsEl.innerHTML = '';
     q.options.forEach((option, index) => {
@@ -109,11 +118,14 @@ function loadQuestion() {
         optionsEl.appendChild(btn);
     });
 
-    nextBtn.disabled = true;
+    if (nextBtn) nextBtn.disabled = true;
 }
 
 function selectAnswer(selected) {
     const q = plantQuizData[currentQuestion];
+    const optionsEl = document.getElementById('options');
+    const scoreEl = document.getElementById('score');
+    const nextBtn = document.getElementById('nextBtn');
     const buttons = optionsEl.querySelectorAll('.option-btn');
 
     buttons.forEach((btn, index) => {
@@ -127,10 +139,10 @@ function selectAnswer(selected) {
 
     if (selected === q.correct) {
         score++;
-        scoreEl.textContent = score;
+        if (scoreEl) scoreEl.textContent = score;
     }
 
-    nextBtn.disabled = false;
+    if (nextBtn) nextBtn.disabled = false;
 }
 
 function nextQuestion() {
@@ -143,28 +155,37 @@ function nextQuestion() {
 }
 
 function showResult() {
-    quizBodyEl.classList.add('hidden');
-    quizFooterEl.classList.add('hidden');
-    resultEl.classList.remove('hidden');
+    const quizBodyEl = document.getElementById('quizBody');
+    const quizFooterEl = document.getElementById('quizFooter');
+    const resultEl = document.getElementById('quizResult');
+    const finalScoreEl = document.getElementById('finalScore');
+    const resultMessageEl = document.getElementById('resultMessage');
 
-    finalScoreEl.textContent = score;
+    if (quizBodyEl) quizBodyEl.classList.add('hidden');
+    if (quizFooterEl) quizFooterEl.classList.add('hidden');
+    if (resultEl) resultEl.classList.remove('hidden');
 
-    if (score === 5) {
-        resultMessageEl.textContent = "🌟 Perfect! You're a plant expert!";
-    } else if (score >= 3) {
-        resultMessageEl.textContent = "🌱 Great job! You know your plants!";
-    } else {
-        resultMessageEl.textContent = "🌿 Keep learning about plants!";
+    if (finalScoreEl) finalScoreEl.textContent = score;
+
+    if (resultMessageEl) {
+        if (score === 5) {
+            resultMessageEl.textContent = "🌟 Perfect! You're a plant expert!";
+        } else if (score >= 3) {
+            resultMessageEl.textContent = "🌱 Great job! You know your plants!";
+        } else {
+            resultMessageEl.textContent = "🌿 Keep learning about plants!";
+        }
     }
 }
 
-// Event Listeners
-if (nextBtn) {
-    nextBtn.addEventListener('click', nextQuestion);
-}
-if (restartBtn) {
-    restartBtn.addEventListener('click', resetQuiz);
-}
+// Attach event listeners after DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+    const nextBtn = document.getElementById('nextBtn');
+    const restartBtn = document.getElementById('restartBtn');
+
+    if (nextBtn) nextBtn.addEventListener('click', nextQuestion);
+    if (restartBtn) restartBtn.addEventListener('click', resetQuiz);
+});
 
 /* =============================
    RECIPE CARDS
@@ -173,44 +194,49 @@ function flipCard(card) {
     card.classList.toggle('flipped');
 }
 
-document.querySelectorAll('.recipe-card').forEach(card => {
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            flipCard(card);
-        }
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.recipe-card').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                flipCard(card);
+            }
+        });
     });
+
+    const recipeBtn = document.getElementById('toggleRecipesBtn');
+    const recipeWrapper = document.getElementById('recipeWrapper');
+
+    if (recipeBtn && recipeWrapper) {
+        recipeBtn.addEventListener('click', () => {
+            recipeWrapper.classList.toggle('hidden');
+            recipeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    }
 });
 
-const recipeBtn = document.getElementById('toggleRecipesBtn');
-const recipeWrapper = document.getElementById('recipeWrapper');
-
-if (recipeBtn && recipeWrapper) {
-    recipeBtn.addEventListener('click', () => {
-        recipeWrapper.classList.toggle('hidden');
-        recipeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-}
-
 function closeRecipes() {
-    document.getElementById('recipeWrapper').classList.add('hidden');
+    const recipeWrapper = document.getElementById('recipeWrapper');
+    if (recipeWrapper) recipeWrapper.classList.add('hidden');
 }
 
 /* =============================
    LIGHTBOX
 ============================== */
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
-if (lightbox && lightboxImg) {
-    document.querySelectorAll('.hobby-gallery img').forEach(img => {
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightbox.classList.remove('hidden');
+    if (lightbox && lightboxImg) {
+        document.querySelectorAll('.hobby-gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('hidden');
+            });
         });
-    });
 
-    lightbox.addEventListener('click', () => {
-        lightbox.classList.add('hidden');
-    });
-}
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+        });
+    }
+});
