@@ -130,39 +130,71 @@ function showResult() {
   }
 }
 // plantQuiz.js
-window.startPlantQuiz = function () {
-    console.log("Quiz started");
-};
+document.addEventListener("DOMContentLoaded", () => {
 
-function restartQuiz() {
-  currentQuestion = 0;
-  score = 0;
-  scoreEl.textContent = 0;
-  
-  quizBodyEl.classList.remove('hidden');
-  quizFooterEl.classList.remove('hidden');
-  resultEl.classList.add('hidden');
-  
-  loadQuestion();
-}
+  /* =============================
+     GLOBAL STATE
+  ============================== */
+  let currentQuestion = 0;
+  let score = 0;
 
-nextBtn.addEventListener('click', () => {
-  currentQuestion++;
-  if (currentQuestion < plantQuizData.length) {
-    loadQuestion();
-  } else {
-    showResult();
+  /* =============================
+     DOM ELEMENTS
+  ============================== */
+  const quizBodyEl   = document.getElementById("quizBody");
+  const quizFooterEl = document.getElementById("quizFooter");
+  const resultEl     = document.getElementById("quizResult");
+  const scoreEl      = document.getElementById("score");
+  const nextBtn      = document.getElementById("nextBtn");
+  const restartBtn   = document.getElementById("restartBtn");
+
+  /* =============================
+     SAFETY CHECK
+  ============================== */
+  if (!quizBodyEl || !nextBtn || !restartBtn) {
+    console.warn("Quiz elements not found — quiz not initialised");
+    return;
   }
-});
 
-function closePlantQuiz() {
-  document.getElementById('plantQuizWrapper').classList.add('hidden');
-}
+  /* =============================
+     FUNCTIONS
+  ============================== */
 
-restartBtn.addEventListener('click', restartQuiz);
+  // 🔹 Exposed for HTML onclick
+  window.startPlantQuiz = function () {
+    console.log("🌱 Plant quiz started");
+    document.getElementById("plantQuizWrapper")?.classList.remove("hidden");
+    resetQuiz();
+  };
 
-// Start quiz
-loadQuestion();
+  function resetQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    scoreEl.textContent = score;
+
+    quizBodyEl.classList.remove("hidden");
+    quizFooterEl.classList.remove("hidden");
+    resultEl.classList.add("hidden");
+
+    loadQuestion();
+  }
+
+  function loadQuestion() {
+    // ensure data exists
+    if (!window.plantQuizData || !plantQuizData.length) {
+      console.error("plantQuizData missing");
+      return;
+    }
+
+    // your existing question rendering logic here
+    console.log("Loading question", currentQuestion);
+  }
+
+  function showResult() {
+    quizBodyEl.classList.add("hidden");
+    quizFooterEl.classList.add("hidden");
+    resultEl.classList.remove("
+
 
 
 function flipCard(card) {
