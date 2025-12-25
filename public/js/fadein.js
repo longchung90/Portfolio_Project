@@ -178,6 +178,19 @@ function showResult() {
     }
 }
 
+/* =============================
+   CLOSE PLANT QUIZ
+============================== */
+function closePlantQuiz() {
+    const wrapper = document.getElementById('plantQuizWrapper');
+    if (wrapper) {
+        wrapper.classList.add('hidden');
+        // Optional: Reset quiz when closing
+        currentQuestion = 0;
+        score = 0;
+    }
+}
+
 // Attach event listeners after DOM loads
 document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById('nextBtn');
