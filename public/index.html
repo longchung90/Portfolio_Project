@@ -80,74 +80,124 @@
             </div>
         </section>
 
-        <!-- ===== PORTFOLIO ===== -->
-        <section id="portfolio" class="fade-in">
-            <h2>Portfolio</h2>
+<!-- ===== PORTFOLIO ===== -->
+<section id="portfolio" class="fade-in">
+    <h2>Portfolio</h2>
+    <p>
+        I bring a unique blend of expertise spanning biomedical research and modern data analytics.
+        From pioneering DESI-MS imaging (laboratory + instrument-acquired big data) to building AI-driven models
+        for financial, retail, and healthcare datasets, my work demonstrates how rigorous science and data
+        innovation can deliver impact across industries.
+    </p>
+
+    <!-- ===== Project Experience (Frosted Overlay) ===== -->
+    <div class="project-experience-overlay">
+        <div class="project-experience-content">
+            <h3>Project Experience</h3>
+            <ul>
+                <li>
+                    <i class="fas fa-brain"></i>
+                    <b>AI & Analytics (2024–2025):</b> Optimised AI models for ethical outputs; delivered EDA,
+                    dashboards, and predictive models across finance and retail.
+                </li>
+                <li>
+                    <i class="fas fa-flask"></i>
+                    <b>Healthcare & Biomedical Research (2019–2024):</b> Built data pipelines; advanced lipidomics,
+                    proteomics, and DESI-MS imaging.
+                </li>
+                <li>
+                    <i class="fas fa-chart-line"></i>
+                    <b>Leadership & Operations:</b> Directed large-scale research operations and
+                    cross-functional projects.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== PROJECTS GRID ===== -->
+    <div id="projects">
+
+        <!-- =========================
+             Project 1: Falcon 9 Launch SpaceX
+        ========================= -->
+        <div class="project-card"
+            onclick="window.open('https://github.com/longchung90/Falcon9_SpaceX','_blank')">
+
+            <div class="project-header">
+                <h3>Falcon 9 Launch SpaceX – Data Science Capstone Project</h3>
+                <div class="project-icons">
+                    <a href="https://github.com/longchung90/Falcon9_SpaceX" target="_blank"
+                        class="github-link icon-delay" onclick="event.stopPropagation();">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
             <p>
-                I bring a unique blend of expertise spanning biomedical research and modern data analytics.
-                From pioneering DESI-MS imaging (laboratory + instrument-acquired big data) to building AI-driven models
-                for financial, retail, and healthcare datasets, my work demonstrates how rigorous science and data
-                innovation can deliver impact across industries.
+                End-to-end data science project analysing SpaceX Falcon 9 launches, combining API data,
+                exploratory data analysis, and machine learning to predict landing success.
             </p>
-            <!-- ===== Project Experience (Frosted Overlay) ===== -->
-            <div class="project-experience-overlay">
-                <div class="project-experience-content">
-                    <h3>Project Experience</h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-brain"></i>
-                            <b>AI & Analytics (2024–2025):</b> Optimised AI models for ethical outputs; delivered EDA,
-                            dashboards, and predictive models across finance and retail.
-                        </li>
-                        <li>
-                            <i class="fas fa-flask"></i>
-                            <b>Healthcare & Biomedical Research (2019–2024):</b> Built data pipelines; advanced
-                            lipidomics,
-                            proteomics, and DESI-MS imaging.
-                        </li>
-                        <li>
-                            <i class="fas fa-chart-line"></i>
-                            <b>Leadership & Operations:</b> Directed large-scale research operations and
-                            cross-functional projects.
-                        </li>
-                    </ul>
-                </div>
+
+            <div class="project-feature">
+                <img src="images/falcon9.png" alt="Falcon 9 Launch Analysis">
             </div>
 
-            <div id="projects">
-                <!-- ========================= Project 7: Falcon 9 Launch SpaceX ========================= -->
-                <div class="project-card" onclick="window.open('https://github.com/longchung90/Falcon9_SpaceX','_blank')"></div>
-                <div class="project-header">
-                    <h3>Falcon 9 Launch SpaceX - Data Science Capstone project</h3>
-                    <div class="project-icons">
-                        <a href="https://github.com/longchung90/Falcon9_SpaceX" target="_blank"
-                            class="github-link icon-delay" onclick="event.stopPropagation();">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
+            <div class="project-solution">
+                <h4>Solution</h4>
                 <p>
-                    End-to-end data science project analysing SpaceX Falcon 9 launches, combining API data, EDA,
-                    and machine learning to predict landing success.
+                    Delivered an end-to-end pipeline integrating API ingestion, feature engineering,
+                    and machine-learning models to predict first-stage landing success.
                 </p>
+            </div>
+        </div>
 
-                <div class="project-feature">
-                    <img src="images/falcon9.png" alt="Falcon 9 Launch Analysis">
-                </div>
+        <!-- =========================
+             Project 2: Weather Forecast Global Cities
+        ========================= -->
+        <div class="project-card"
+            onclick="window.open('https://github.com/longchung90/weather_forecast','_blank')">
 
-                <div class="project-solution">
-                    <h4>Solution</h4>
-                    <p>
-                        - Delivered an end-to-end data science solution integrating API data, feature engineering,
-                        and machine learning.<br>
-                        - Enabled data-driven insights and prediction of Falcon 9 first-stage landing success.
-                    </p>
+            <div class="project-header">
+                <h3>Weather Forecast – Global Cities</h3>
+                <div class="project-icons">
+                    <a href="https://github.com/longchung90/weather_forecast" target="_blank"
+                        class="github-link icon-delay" onclick="event.stopPropagation();">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://weather-forecast-global.onrender.com/" target="_blank"
+                        class="weather-link icon-delay" onclick="event.stopPropagation();">
+                        <i class="fas fa-cloud-sun"></i>
+                    </a>
                 </div>
             </div>
 
-            <!-- ========================= Project 2: Loan Default Prediction ========================= -->
-            <div class="project-card" onclick="window.open('https://github.com/longchung90/Default_Loan_Prediction','_blank')"></div>
+            <p>
+                Interactive global weather dashboard using live APIs to compare multi-day forecasts
+                across major cities with robust data parsing and visualisation.
+            </p>
+
+            <div class="project-feature">
+                <img src="images/global.jpg" alt="Global Weather Map">
+            </div>
+
+            <div class="project-images">
+                <img src="images/banner.jpg" alt="Weather App Frontpage">
+            </div>
+
+            <div class="project-solution">
+                <h4>Solution</h4>
+                <p>
+                    Built an API-driven system aggregating real-time weather data with user-requested
+                    city expansion via an in-app contact form.
+                </p>
+            </div>
+        </div>
+
+        <!-- =========================
+             Project 3: Loan Default Prediction
+        ========================= -->
+        <div class="project-card"
+            onclick="window.open('https://github.com/longchung90/Default_Loan_Prediction','_blank')">
 
             <div class="project-header">
                 <h3>Loan Default Prediction (Top 92%)</h3>
@@ -158,32 +208,65 @@
             </div>
 
             <p>
-                Developed ML models to predict loan defaults using financial data.
-                Ranked in the <b>top 92% globally</b> in Coursera's IBM Data Science competition.
+                Developed machine-learning models to predict loan defaults using financial data,
+                ranking in the <b>top 92% globally</b> in the IBM Data Science challenge.
             </p>
 
             <div class="project-feature">
-                <img src="/images/Top92.png" alt="Loan Default Top 92%">
+                <img src="images/Top92.png" alt="Loan Default Top 92%">
             </div>
 
             <div class="project-images">
-                <img src="/images/loan_default-2.png" alt="Loan Default Modelling">
+                <img src="images/loan_default-2.png" alt="Loan Default Modelling">
+                <img src="images/homeloan.jpg" alt="Financial Features">
             </div>
 
             <div class="project-solution">
                 <h4>Solution</h4>
                 <p>
-                    Applied <b>feature engineering</b> and classification models to identify at-risk borrowers,
-                    testing robustness on both ordinary and extreme cases.
+                    Applied feature engineering and classification models to identify at-risk borrowers,
+                    stress-testing performance across ordinary and extreme cases.
                 </p>
             </div>
+        </div>
 
-            <div class="project-images">
-                <img src="images/homeloan.jpg" alt="Financial Features">
+        <!-- =========================
+             Project 4: Customer Churn Prediction
+        ========================= -->
+        <div class="project-card"
+            onclick="window.open('https://github.com/longchung90/churning_prediction_modeling','_blank')">
+
+            <div class="project-header">
+                <h3>Customer Churn Prediction</h3>
+                <a href="https://github.com/longchung90/churning_prediction_modeling" target="_blank"
+                    class="github-link icon-delay">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
 
-            <!-- ========================= Project 1: Stack Overflow Survey ========================= -->
-            <div class="project-card" onclick="window.open('https://github.com/longchung90/IBM_Data_Analyst_Capstone_Project')"></div>
+            <p>
+                Predicted customer churn for subscription-based services using logistic regression,
+                random forest, and gradient boosting models.
+            </p>
+
+            <div class="project-feature">
+                <img src="images/netflix.png" alt="Churn Prediction">
+            </div>
+
+            <div class="project-solution">
+                <h4>Solution</h4>
+                <p>
+                    Compared models using cross-validation and AUC metrics to select robust,
+                    business-ready predictors.
+                </p>
+            </div>
+        </div>
+
+        <!-- =========================
+             Project 5: Stack Overflow Survey
+        ========================= -->
+        <div class="project-card"
+            onclick="window.open('https://github.com/longchung90/IBM_Data_Analyst_Capstone_Project','_blank')">
 
             <div class="project-header">
                 <h3>IBM Data Analyst Capstone – Stack Overflow Survey</h3>
@@ -194,8 +277,8 @@
             </div>
 
             <p>
-                Analysed Stack Overflow developer survey data and built IBM Cognos dashboards to reveal
-                <b>tech trends, emerging skills demand, and workforce implications</b>.
+                Analysed Stack Overflow developer survey data and built IBM Cognos dashboards
+                revealing technology trends and workforce insights.
             </p>
 
             <div class="project-feature">
@@ -210,71 +293,15 @@
             <div class="project-solution">
                 <h4>Solution</h4>
                 <p>
-                    Built dashboards using <b>Python + Cognos</b> to track technology adoption, emerging skills,
-                    and guide hiring and training.
+                    Delivered interactive dashboards highlighting emerging skills,
+                    hiring demand, and strategic workforce implications.
                 </p>
             </div>
-        </section>
+        </div>
 
-        <!-- ===== SKILLS ===== -->
-        <section id="skills" class="fade-in">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <!-- Left side: text -->
-                <div class="skills-text">
-                    <p><strong>Data Analytics & Statistics:</strong> Turning complex datasets into actionable insights through exploratory data analysis (EDA), statistical reasoning, trend detection, and business-driven storytelling. Experienced in hypothesis testing, feature interpretation, and translating analytical outcomes into clear, decision-support narratives for stakeholders.</p>
-                    <p><strong>Programming & Tools:</strong> Proficient across Python, R, and SQL for data wrangling, analysis, and model evaluation. Experienced in building interactive dashboards and reporting layers using IBM Cognos, Looker, and Power BI, enabling transparent data exploration, KPI monitoring, and insight communication across technical and non-technical audiences.</p>
-                    <p><strong>Machine Learning & AI:</strong> Designing and evaluating predictive and classification models with a strong emphasis on reliability, interpretability, and real-world impact. Skilled in model validation, performance metrics, bias awareness, and aligning ML outputs with operational and business constraints.</p>
-                    <p><strong>AI Training, Prompt Engineering & Human Feedback Systems:</strong> Experienced in AI training and evaluation pipelines using rubric-based frameworks, prompt engineering, and human-in-the-loop feedback. Contributed to SFT and RLHF workflows through structured annotation, response evaluation, and failure-mode analysis to improve model quality and alignment.</p>
-                </div>
+    </div>
+</section>
 
-                <!-- Right side: image -->
-                <div class="skills-img">
-                    <img src="images/Wordcloud_Skills.png" alt="Skills Wordcloud">
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== EXPERIENCE ===== -->
-        <section id="experience" class="fade-in">
-            <h2>Experience</h2>
-            <p class="experience-intro">
-                A journey from scientific discovery to data innovation — bridging research, analytics, and AI
-                leadership.
-            </p>
-
-            <div class="experience-grid">
-                <div class="experience-card fade-in">
-                    <img src="images/laboratory.png" alt="Research Scientist" class="experience-image">
-                    <h3><i class="fa-solid fa-flask"></i> Research Scientist</h3>
-                    <p class="experience-role">
-                        PhD scientist with expertise in lipidomics, proteomics, and DESI imaging, publishing novel
-                        findings and
-                        earning multiple research awards.
-                    </p>
-                </div>
-
-                <div class="experience-card fade-in">
-                    <img src="images/dataSci.jpg" alt="Data Scientist" class="experience-image">
-                    <h3><i class="fa-solid fa-chart-line"></i> Data Scientist</h3>
-                    <p class="experience-role">
-                        Transitioned into data science and AI, delivering predictive analytics pipelines, business
-                        dashboards,
-                        and ranking Top-92 in a global Coursera challenge.
-                    </p>
-                </div>
-
-                <div class="experience-card fade-in">
-                    <img src="images/AI_1.jpg" alt="AI & Leadership" class="experience-image">
-                    <h3><i class="fa-solid fa-robot"></i> AI & Leadership</h3>
-                    <p class="experience-role">
-                        Current work spans AI model evaluation (Outlier AI), financial/operational analytics, and
-                        leadership
-                        roles integrating data strategy with ethical AI.
-                    </p>
-                </div>
-            </div>
-        </section>
 
         <!-- ===== PUBLICATIONS ===== -->
         <section id="publications" class="fade-in">
