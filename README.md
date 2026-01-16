@@ -9,6 +9,7 @@ Built with **Node.js**, **Express**, and **modern front-end design**.
 🔗 [Visit Portfolio](https://lcportfolio.org)
 
 ---
+[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ff69b4?logo=github)](https://github.com/sponsors/longchung90)
 
 ## 🧩 Features
 - Responsive, modern design with animated hero & smooth fade-ins  
