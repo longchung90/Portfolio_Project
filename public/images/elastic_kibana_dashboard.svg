@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Illustration of a Kibana-style operations dashboard with a bar chart, a region map, a latency trend chart with an alert, and Elasticsearch mapping tags">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#171b23"/>
+      <stop offset="1" stop-color="#10131a"/>
+    </linearGradient>
+    <radialGradient id="marker-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f7d36a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f7d36a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect x="0" y="0" width="800" height="560" rx="20" fill="url(#bg)"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="800" height="52" rx="20" fill="#0c0e13"/>
+  <rect x="0" y="32" width="800" height="20" fill="#0c0e13"/>
+  <circle cx="28" cy="26" r="6" fill="#f2795a"/>
+  <circle cx="50" cy="26" r="6" fill="#f7d36a"/>
+  <circle cx="72" cy="26" r="6" fill="#3ec9b0"/>
+  <text x="100" y="31" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f5f5f7">Ops Dashboard</text>
+  <text x="234" y="31" font-family="Arial, sans-serif" font-size="13" fill="#8b93a1">Kibana</text>
+
+  <!-- Alert bell -->
+  <g transform="translate(742,26)">
+    <circle r="16" fill="#1c2129" stroke="#2a3140" stroke-width="1"/>
+    <path d="M-5,-2 a5,6 0 0 1 10,0 c0,4 1.5,5.5 2.5,6.5 h-15 c1,-1 2.5,-2.5 2.5,-6.5 z" fill="#e7ebf2"/>
+    <rect x="-2" y="6" width="4" height="2.4" rx="1.2" fill="#e7ebf2"/>
+    <circle cx="9" cy="-9" r="6" fill="#ef5a5a"/>
+    <text x="9" y="-6" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Bar chart panel -->
+  <g filter="url(#soft-shadow)">
+    <rect x="28" y="76" width="430" height="230" rx="14" fill="#1b202a" stroke="#262c38" stroke-width="1"/>
+  </g>
+  <text x="50" y="106" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#f7d36a">Requests by Service</text>
+  <text x="50" y="124" font-family="Arial, sans-serif" font-size="11" fill="#8b93a1">Elasticsearch aggregation · last 24h</text>
+
+  <g transform="translate(60,270)">
+    <!-- baseline -->
+    <line x1="0" y1="0" x2="380" y2="0" stroke="#2a3140" stroke-width="1"/>
+    <!-- bars: x, height, color, label -->
+    <g>
+      <rect x="10"  y="-70"  width="46" height="70"  rx="4" fill="#3ec9b0"/>
+      <rect x="86"  y="-118" width="46" height="118" rx="4" fill="#f7d36a"/>
+      <rect x="162" y="-46"  width="46" height="46"  rx="4" fill="#f2795a"/>
+      <rect x="238" y="-96"  width="46" height="96"  rx="4" fill="#7c9cf2"/>
+      <rect x="314" y="-64"  width="46" height="64"  rx="4" fill="#b98cf2"/>
+    </g>
+    <text x="33"  y="18" font-family="Arial, sans-serif" font-size="10" fill="#8b93a1" text-anchor="middle">auth</text>
+    <text x="109" y="18" font-family="Arial, sans-serif" font-size="10" fill="#8b93a1" text-anchor="middle">search</text>
+    <text x="185" y="18" font-family="Arial, sans-serif" font-size="10" fill="#8b93a1" text-anchor="middle">billing</text>
+    <text x="261" y="18" font-family="Arial, sans-serif" font-size="10" fill="#8b93a1" text-anchor="middle">orders</text>
+    <text x="337" y="18" font-family="Arial, sans-serif" font-size="10" fill="#8b93a1" text-anchor="middle">web</text>
+  </g>
+
+  <!-- Map panel -->
+  <g filter="url(#soft-shadow)">
+    <rect x="474" y="76" width="298" height="230" rx="14" fill="#161c2b" stroke="#242c40" stroke-width="1"/>
+  </g>
+  <text x="496" y="106" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#f7d36a">Traffic by Region</text>
+  <text x="496" y="124" font-family="Arial, sans-serif" font-size="11" fill="#8b93a1">Kibana Maps · geo_point mapping</text>
+
+  <!-- stylised dot-grid world map -->
+  <g fill="#2b3346">
+    <circle cx="510" cy="150" r="2"/><circle cx="522" cy="150" r="2"/><circle cx="534" cy="150" r="2"/><circle cx="546" cy="150" r="2"/><circle cx="558" cy="150" r="2"/><circle cx="570" cy="150" r="2"/><circle cx="582" cy="150" r="2"/><circle cx="594" cy="150" r="2"/><circle cx="606" cy="150" r="2"/><circle cx="618" cy="150" r="2"/><circle cx="630" cy="150" r="2"/><circle cx="642" cy="150" r="2"/><circle cx="654" cy="150" r="2"/><circle cx="666" cy="150" r="2"/><circle cx="678" cy="150" r="2"/><circle cx="690" cy="150" r="2"/><circle cx="702" cy="150" r="2"/><circle cx="714" cy="150" r="2"/><circle cx="726" cy="150" r="2"/><circle cx="738" cy="150" r="2"/>
+    <circle cx="510" cy="164" r="2"/><circle cx="522" cy="164" r="2"/><circle cx="534" cy="164" r="2"/><circle cx="558" cy="164" r="2"/><circle cx="582" cy="164" r="2"/><circle cx="594" cy="164" r="2"/><circle cx="618" cy="164" r="2"/><circle cx="630" cy="164" r="2"/><circle cx="642" cy="164" r="2"/><circle cx="666" cy="164" r="2"/><circle cx="690" cy="164" r="2"/><circle cx="702" cy="164" r="2"/><circle cx="726" cy="164" r="2"/><circle cx="738" cy="164" r="2"/>
+    <circle cx="522" cy="178" r="2"/><circle cx="534" cy="178" r="2"/><circle cx="546" cy="178" r="2"/><circle cx="570" cy="178" r="2"/><circle cx="594" cy="178" r="2"/><circle cx="606" cy="178" r="2"/><circle cx="630" cy="178" r="2"/><circle cx="654" cy="178" r="2"/><circle cx="678" cy="178" r="2"/><circle cx="702" cy="178" r="2"/><circle cx="714" cy="178" r="2"/><circle cx="738" cy="178" r="2"/>
+    <circle cx="510" cy="192" r="2"/><circle cx="534" cy="192" r="2"/><circle cx="558" cy="192" r="2"/><circle cx="582" cy="192" r="2"/><circle cx="606" cy="192" r="2"/><circle cx="630" cy="192" r="2"/><circle cx="654" cy="192" r="2"/><circle cx="678" cy="192" r="2"/><circle cx="702" cy="192" r="2"/><circle cx="726" cy="192" r="2"/>
+    <circle cx="546" cy="206" r="2"/><circle cx="570" cy="206" r="2"/><circle cx="594" cy="206" r="2"/><circle cx="618" cy="206" r="2"/><circle cx="642" cy="206" r="2"/><circle cx="666" cy="206" r="2"/><circle cx="690" cy="206" r="2"/><circle cx="714" cy="206" r="2"/>
+    <circle cx="558" cy="220" r="2"/><circle cx="582" cy="220" r="2"/><circle cx="606" cy="220" r="2"/><circle cx="630" cy="220" r="2"/><circle cx="654" cy="220" r="2"/><circle cx="678" cy="220" r="2"/>
+    <circle cx="606" cy="234" r="2"/><circle cx="630" cy="234" r="2"/><circle cx="654" cy="234" r="2"/>
+  </g>
+
+  <!-- glowing markers -->
+  <circle cx="546" cy="164" r="16" fill="url(#marker-glow)"/>
+  <circle cx="546" cy="164" r="4" fill="#f7d36a"/>
+  <circle cx="654" cy="178" r="20" fill="url(#marker-glow)"/>
+  <circle cx="654" cy="178" r="5" fill="#f7d36a"/>
+  <circle cx="606" cy="220" r="12" fill="url(#marker-glow)"/>
+  <circle cx="606" cy="220" r="3" fill="#f7d36a"/>
+  <circle cx="726" cy="164" r="10" fill="url(#marker-glow)"/>
+  <circle cx="726" cy="164" r="3" fill="#f7d36a"/>
+
+  <text x="496" y="284" font-family="Arial, sans-serif" font-size="10" fill="#8b93a1">● higher traffic  ○ lower traffic</text>
+
+  <!-- Latency / alert panel -->
+  <g filter="url(#soft-shadow)">
+    <rect x="28" y="322" width="744" height="182" rx="14" fill="#1b202a" stroke="#262c38" stroke-width="1"/>
+  </g>
+  <text x="50" y="352" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#f7d36a">Latency (ms) — 24h</text>
+  <text x="50" y="370" font-family="Arial, sans-serif" font-size="11" fill="#8b93a1">Alert rule: p95 &gt; 400ms</text>
+
+  <!-- threshold line -->
+  <line x1="50" y1="418" x2="746" y2="418" stroke="#ef5a5a" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <text x="746" y="410" font-family="Arial, sans-serif" font-size="10" fill="#ef5a5a" text-anchor="end">threshold</text>
+
+  <!-- latency area/line -->
+  <path d="M50,470 C120,462 160,455 200,458 C250,462 280,445 320,440 C360,435 390,452 430,448
+           C470,444 500,400 540,392 C580,384 610,430 650,436 C690,442 720,432 746,428"
+        fill="none" stroke="#3ec9b0" stroke-width="2.5"/>
+  <path d="M50,470 C120,462 160,455 200,458 C250,462 280,445 320,440 C360,435 390,452 430,448
+           C470,444 500,400 540,392 C580,384 610,430 650,436 C690,442 720,432 746,428
+           L746,494 L50,494 Z"
+        fill="#3ec9b0" fill-opacity="0.12"/>
+
+  <!-- breach point -->
+  <circle cx="540" cy="392" r="5.5" fill="#ef5a5a"/>
+  <circle cx="540" cy="392" r="10" fill="none" stroke="#ef5a5a" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- tags -->
+  <g font-family="Arial, sans-serif" font-size="11" font-weight="600">
+    <rect x="50" y="472" width="98" height="22" rx="11" fill="none" stroke="#f7d36a" stroke-width="1"/>
+    <text x="99" y="486" fill="#f7d36a" text-anchor="middle">Elasticsearch</text>
+
+    <rect x="158" y="472" width="70" height="22" rx="11" fill="none" stroke="#f7d36a" stroke-width="1"/>
+    <text x="193" y="486" fill="#f7d36a" text-anchor="middle">Kibana</text>
+
+    <rect x="238" y="472" width="118" height="22" rx="11" fill="none" stroke="#f7d36a" stroke-width="1"/>
+    <text x="297" y="486" fill="#f7d36a" text-anchor="middle">Index Mapping</text>
+
+    <rect x="366" y="472" width="88" height="22" rx="11" fill="none" stroke="#f7d36a" stroke-width="1"/>
+    <text x="410" y="486" fill="#f7d36a" text-anchor="middle">Alerting</text>
+  </g>
+</svg>
