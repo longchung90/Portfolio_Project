@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking Observability Dashboard</title>
+<style>
+* { box-sizing: border-box; }
+:root { --bg:#111110; --surface:#1a1a19; --card:#222220; --text:#f0efec; --muted:#898781; --border:rgba(255,255,255,.12); --blue:#3987e5; --green:#1baf7a; --yellow:#eda100; --red:#e34948; }
+body { margin:0; padding:20px; min-height:100vh; background:var(--bg); color:var(--text); font:12px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.header,.filter-bar,.kpi-grid,.row2,.row3 { display:grid; gap:12px; }
+.header { grid-template-columns:1fr auto; align-items:center; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.header-title { font-size:16px; font-weight:600; } .header-sub,.timestamp,.muted { color:var(--muted); font-size:11px; }
+.live-pill,.badge { border-radius:12px; color:#97c459; background:#173404; padding:3px 9px; font-size:10px; font-weight:600; }
+.filter-bar { grid-template-columns:repeat(5,max-content) 1fr; align-items:center; margin-bottom:14px; }
+.filter-btn { padding:8px 13px; border:1px solid var(--border); border-radius:8px; background:transparent; color:var(--text); cursor:pointer; }
+.filter-btn.active { border-color:var(--blue); background:var(--blue); color:#fff; }
+.timestamp { text-align:right; }
+.kpi-grid { grid-template-columns:repeat(4,1fr); margin-bottom:12px; }
+.kpi,.card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; }
+.kpi { background:var(--surface); } .kpi-label,.panel-title { color:#bcbab2; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+.kpi-val { margin:4px 0; font-size:25px; font-weight:600; } .ok { color:var(--green); } .warn { color:var(--yellow); } .crit { color:var(--red); }
+.row2 { grid-template-columns:2fr 1fr; margin-bottom:12px; } .row3 { grid-template-columns:1fr 1fr 1fr; margin-bottom:12px; }
+.panel-title { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.badge-warn { color:var(--yellow); background:#412402; } .chart { height:130px; padding:10px 0; border-bottom:1px solid var(--border); }
+.chart svg { display:block; }
+.alert-row,.net-row,.bar-row { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--border); } .alert-row:last-child,.net-row:last-child { border-bottom:0; }
+.dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; } .dot-r { background:var(--red); } .dot-y { background:var(--yellow); } .dot-g { background:var(--green); }
+.alert-msg,.bar-label,.net-svc { flex:1; } .alert-time { color:var(--muted); font-size:11px; }
+.bar-label { max-width:90px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .bar-track { flex:1; height:8px; overflow:hidden; border-radius:5px; background:#171716; } .bar-fill { height:100%; border-radius:5px; } .bar-pct,.net-val { font-weight:600; }
+.gauge { width:120px; height:60px; margin:20px auto 10px; overflow:hidden; border-radius:120px 120px 0 0; background:conic-gradient(from 270deg,var(--yellow) 0 82%,#333 82% 100%); position:relative; }
+.gauge::after { content:"82%"; position:absolute; inset:18px 14px 0; padding-top:18px; border-radius:100px 100px 0 0; background:var(--card); text-align:center; font-weight:600; }
+.heatmap { display:grid; grid-template-columns:80px repeat(10,1fr); gap:2px; } .heatmap span { height:15px; background:#1baf7a; } .heatmap .label { background:transparent; color:var(--muted); font-size:10px; }
+.heatmap .heat-1 { background:linear-gradient(135deg,#153b37,#1baf7a); }
+.heatmap .heat-2 { background:linear-gradient(135deg,#1baf7a,#8c9d35); }
+.heatmap .heat-3 { background:linear-gradient(135deg,#8c9d35,#eda100); }
+.heatmap .heat-4 { background:linear-gradient(135deg,#eda100,#e34948); }
+@media(max-width:768px){ body{padding:12px}.filter-bar{grid-template-columns:repeat(2,1fr)}.filter-btn{width:100%}.timestamp{text-align:left}.kpi-grid,.row2,.row3{grid-template-columns:1fr 1fr}.row2>*,.row3>*:last-child{grid-column:1/-1} }
+@media(max-width:480px){.kpi-grid,.row2,.row3{grid-template-columns:1fr}.row2>*,.row3>*:last-child{grid-column:auto}.header{grid-template-columns:1fr}.live-pill{width:max-content}}
+</style>
+</head>
+<body>
+<div class="header"><div><div class="header-title">Banking Observability - System Health</div><div class="header-sub">Elastic Stack - Metricbeat - bank-metrics-* - Westpac</div></div><span class="live-pill">LIVE</span></div>
+<div class="filter-bar"><button class="filter-btn active" data-filter="all">All services</button><button class="filter-btn" data-filter="payment">Payment gateway</button><button class="filter-btn" data-filter="fraud">Fraud detection</button><button class="filter-btn" data-filter="core">Core banking</button><button class="filter-btn" data-filter="auth">Auth service</button><span class="timestamp" id="timestamp"></span></div>
+<div class="kpi-grid"><div class="kpi"><div class="kpi-label">TPS</div><div class="kpi-val" id="tps">--</div><div class="ok">stable</div></div><div class="kpi"><div class="kpi-label">Avg CPU</div><div class="kpi-val" id="cpu">--</div><div class="ok">normal</div></div><div class="kpi"><div class="kpi-label">Memory used</div><div class="kpi-val" id="memory">--</div><div class="warn">warning zone</div></div><div class="kpi"><div class="kpi-label">P95 latency</div><div class="kpi-val" id="latency">--</div><div class="ok">within SLA</div></div></div>
+<div class="row2"><div class="card"><div class="panel-title">Transaction throughput (TPS)<span class="badge">LIVE</span></div><div class="chart" id="chart"></div></div><div class="card"><div class="panel-title">Active alerts<span class="badge badge-warn">3 ACTIVE</span></div><div class="alert-row"><span class="dot dot-r"></span><b class="alert-msg">payment-svc CPU &gt; 90% - 2m</b><span class="alert-time">0:32 ago</span></div><div class="alert-row"><span class="dot dot-y"></span><b class="alert-msg">fraud-engine memory at 87%</b><span class="alert-time">1:14 ago</span></div><div class="alert-row"><span class="dot dot-g"></span><span class="alert-msg">auth-svc recovered - latency normal</span><span class="alert-time">3:02 ago</span></div></div></div>
+<div class="row3"><div class="card"><div class="panel-title">Top processes - CPU</div><div id="bars"></div></div><div class="card"><div class="panel-title">Memory pressure</div><div class="gauge"></div><div class="muted" style="text-align:center">system.memory.actual.used.pct</div></div><div class="card"><div class="panel-title">Network I/O<span class="badge">LIVE</span></div><div id="network"></div></div></div>
+<div class="card"><div class="panel-title">Disk I/O heatmap - write bytes per host</div><div class="heatmap" id="heatmap"></div></div>
+<script>
+const services=['payment-svc','fraud-engine','core-banking','auth-svc','batch-proc']; let filter='all';
+const random=(min,max)=>Math.round(min+Math.random()*(max-min));
+function render(){const factor=filter==='all'?1:.35; document.getElementById('tps').textContent=random(160,280)*factor|0; document.getElementById('cpu').textContent=random(42,69)+'%'; document.getElementById('memory').textContent=random(70,88)+'%'; document.getElementById('latency').textContent=random(38,95)+'ms'; document.getElementById('timestamp').textContent=new Date().toLocaleTimeString();
+ const points=Array.from({length:20},()=>random(30,100)); const stepX=300/(points.length-1);
+ const coords=points.map((v,i)=>[+(i*stepX).toFixed(1),+(100-v).toFixed(1)]);
+ const linePts=coords.map(c=>c.join(',')).join(' '); const areaPts='0,100 '+linePts+' 300,100';
+ document.getElementById('chart').innerHTML='<svg viewBox="0 0 300 100" preserveAspectRatio="none" width="100%" height="100%">'
+   +'<polygon points="'+areaPts+'" fill="rgba(57,135,229,.22)"></polygon>'
+   +'<polyline points="'+linePts+'" fill="none" stroke="#3987e5" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"></polyline>'
+   +'</svg>';
+ const shown=filter==='all'?services:[filter==='payment'?'payment-svc':filter==='fraud'?'fraud-engine':filter==='core'?'core-banking':'auth-svc']; document.getElementById('bars').innerHTML=shown.map((name,i)=>{const value=random(22,91); return '<div class="bar-row"><span class="bar-label">'+name+'</span><div class="bar-track"><div class="bar-fill" style="width:'+value+'%;background:'+['#3987e5','#e34948','#1baf7a','#eda100','#e87ba4'][i]+'"></div></div><span class="bar-pct">'+value+'%</span></div>'}).join('');
+ document.getElementById('network').innerHTML=services.slice(0,4).map(name=>'<div class="net-row"><span class="net-svc">'+name+'</span><span class="net-val">'+random(40,390)+'.'+random(0,9)+' MB/s</span></div>').join('');
+ document.getElementById('heatmap').innerHTML=['db-prod-01','db-prod-02','api-01','api-02','batch-01'].map(name=>'<span class="label">'+name+'</span>'+Array.from({length:10},()=>'<span class="heat-'+random(1,4)+'"></span>').join('')).join(''); }
+document.querySelectorAll('.filter-btn').forEach(button=>button.addEventListener('click',()=>{document.querySelector('.filter-btn.active').classList.remove('active');button.classList.add('active');filter=button.dataset.filter;render()})); render(); setInterval(render,2000);
+</script>
+</body>
+</html>
