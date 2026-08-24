@@ -22,8 +22,8 @@ body { margin:0; padding:20px; min-height:100vh; background:var(--bg); color:var
 .kpi-val { margin:4px 0; font-size:25px; font-weight:600; } .ok { color:var(--green); } .warn { color:var(--yellow); } .crit { color:var(--red); }
 .row2 { grid-template-columns:2fr 1fr; margin-bottom:12px; } .row3 { grid-template-columns:1fr 1fr 1fr; margin-bottom:12px; }
 .panel-title { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-.badge-warn { color:var(--yellow); background:#412402; } .chart { height:130px; display:flex; align-items:end; gap:3px; padding:10px 0; background:linear-gradient(180deg,transparent 70%,rgba(57,135,229,.12) 70%); border-bottom:1px solid var(--border); }
-.chart span { flex:1; min-height:20px; background:var(--blue); border-radius:2px 2px 0 0; opacity:.85; }
+.badge-warn { color:var(--yellow); background:#412402; } .chart { height:130px; padding:10px 0; border-bottom:1px solid var(--border); }
+.chart svg { display:block; }
 .alert-row,.net-row,.bar-row { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--border); } .alert-row:last-child,.net-row:last-child { border-bottom:0; }
 .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; } .dot-r { background:var(--red); } .dot-y { background:var(--yellow); } .dot-g { background:var(--green); }
 .alert-msg,.bar-label,.net-svc { flex:1; } .alert-time { color:var(--muted); font-size:11px; }
@@ -50,7 +50,13 @@ body { margin:0; padding:20px; min-height:100vh; background:var(--bg); color:var
 const services=['payment-svc','fraud-engine','core-banking','auth-svc','batch-proc']; let filter='all';
 const random=(min,max)=>Math.round(min+Math.random()*(max-min));
 function render(){const factor=filter==='all'?1:.35; document.getElementById('tps').textContent=random(160,280)*factor|0; document.getElementById('cpu').textContent=random(42,69)+'%'; document.getElementById('memory').textContent=random(70,88)+'%'; document.getElementById('latency').textContent=random(38,95)+'ms'; document.getElementById('timestamp').textContent=new Date().toLocaleTimeString();
- document.getElementById('chart').innerHTML=Array.from({length:30},()=>'<span style="height:'+random(28,100)+'%"></span>').join('');
+ const points=Array.from({length:20},()=>random(30,100)); const stepX=300/(points.length-1);
+ const coords=points.map((v,i)=>[+(i*stepX).toFixed(1),+(100-v).toFixed(1)]);
+ const linePts=coords.map(c=>c.join(',')).join(' '); const areaPts='0,100 '+linePts+' 300,100';
+ document.getElementById('chart').innerHTML='<svg viewBox="0 0 300 100" preserveAspectRatio="none" width="100%" height="100%">'
+   +'<polygon points="'+areaPts+'" fill="rgba(57,135,229,.22)"></polygon>'
+   +'<polyline points="'+linePts+'" fill="none" stroke="#3987e5" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"></polyline>'
+   +'</svg>';
  const shown=filter==='all'?services:[filter==='payment'?'payment-svc':filter==='fraud'?'fraud-engine':filter==='core'?'core-banking':'auth-svc']; document.getElementById('bars').innerHTML=shown.map((name,i)=>{const value=random(22,91); return '<div class="bar-row"><span class="bar-label">'+name+'</span><div class="bar-track"><div class="bar-fill" style="width:'+value+'%;background:'+['#3987e5','#e34948','#1baf7a','#eda100','#e87ba4'][i]+'"></div></div><span class="bar-pct">'+value+'%</span></div>'}).join('');
  document.getElementById('network').innerHTML=services.slice(0,4).map(name=>'<div class="net-row"><span class="net-svc">'+name+'</span><span class="net-val">'+random(40,390)+'.'+random(0,9)+' MB/s</span></div>').join('');
  document.getElementById('heatmap').innerHTML=['db-prod-01','db-prod-02','api-01','api-02','batch-01'].map(name=>'<span class="label">'+name+'</span>'+Array.from({length:10},()=>'<span class="heat-'+random(1,4)+'"></span>').join('')).join(''); }
