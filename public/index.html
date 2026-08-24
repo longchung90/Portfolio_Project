@@ -36,9 +36,7 @@
             <a href="#about">About Me</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#skills">Skills</a>
-            <a href="#publications">Publications</a>
-            <a href="#experience">Experience</a>
-            <a href="#hobbies">Hobbies</a>
+            <a href="#portfolio">Experience</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -94,23 +92,61 @@
     <div class="project-experience-overlay">
         <div class="project-experience-content">
             <h3>Project Experience</h3>
-            <ul>
-                <li>
-                    <i class="fas fa-brain"></i>
-                    <b>AI & Analytics (2024–2025):</b> Optimised AI models for ethical outputs; delivered EDA,
-                    dashboards, and predictive models across finance and retail.
-                </li>
-                <li>
-                    <i class="fas fa-flask"></i>
-                    <b>Healthcare & Biomedical Research (2019–2024):</b> Built data pipelines; advanced lipidomics,
-                    proteomics, and DESI-MS imaging.
-                </li>
-                <li>
-                    <i class="fas fa-chart-line"></i>
-                    <b>Leadership & Operations:</b> Directed large-scale research operations and
-                    cross-functional projects.
-                </li>
-            </ul>
+            <div class="project-card migration-project">
+                <div class="project-header">
+                    <h3>Splunk to Elastic Migration Project</h3>
+                    <i class="fas fa-server"></i>
+                </div>
+
+                <p class="project-meta">Westpac Banking Group | [Dates] | Engineer</p>
+
+                <div class="project-feature migration-placeholder" role="img"
+                    aria-label="Placeholder visual for the Splunk to Elastic migration project">
+                    <i class="fas fa-database"></i>
+                    <span>Splunk</span>
+                    <i class="fas fa-arrow-right"></i>
+                    <span>Elastic</span>
+                    <small>Observability dashboard screenshot</small>
+                </div>
+
+                <div class="project-solution">
+                    <h4>Overview</h4>
+                    <p>
+                        Working as part of a team of 15 engineers on an ongoing migration from Splunk to Elastic,
+                        including thousands of existing dashboards and alerts. The project has been underway for
+                        four months, with migration and delivery work continuing.
+                    </p>
+                </div>
+
+                <div class="project-solution">
+                    <h4>Responsibilities</h4>
+                    <p>
+                        Supported the migration of dashboards and alerts across two different schemas and database
+                        structures. Created a field-mapping register as a single source of truth for field availability,
+                        compliance requirements, dashboard functionality, and alert behaviour. Also created de novo
+                        dashboards to support end-to-end observability.
+                    </p>
+                </div>
+
+                <div class="project-solution">
+                    <h4>Technology</h4>
+                    <p>
+                        Applied Elastic ESQL and translated Splunk queries into Elastic-compatible searches. Used
+                        multi-agent systems and automation platforms to support high-throughput dashboard creation.
+                    </p>
+                </div>
+
+                <div class="project-solution">
+                    <h4>Outcome</h4>
+                    <p>
+                        Continuing to deliver dashboards and alerts while building a repeatable migration workflow.
+                        The project aims to automate the migration of thousands of dashboards with high accuracy by
+                        using the field register as the source of truth. It is expected to save the organisation
+                        approximately $10 million per year, facilitate CI/CD development, and enable metrics analytics
+                        for incident investigation. Further migration work remains in progress.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -302,224 +338,54 @@
     </div>
 </section>
 
+        <!-- ===== SKILLS ===== -->
+        <section id="skills" class="fade-in">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skills-text">
+                    <p>
+                        I combine data architecture, analytics, and applied AI to turn complex data environments into
+                        reliable systems, useful insights, and practical outcomes.
+                    </p>
 
-        <!-- ===== PUBLICATIONS ===== -->
-        <section id="publications" class="fade-in">
-            <h2>Publications</h2>
-
-            <p class="pub-intro">
-                My research integrates <b>big data</b> in genomics, proteomics, and lipidomics with advanced
-                computational and instrumental approaches. This combination has revealed new <b>disease
-                    mechanisms</b>
-                in metabolic disorders, cancer, and neurodegeneration — supporting better diagnostics and healthier
-                ageing.
-                Key contributions include <b>AI-driven proteomics pipelines</b> and <b>real-time lipidomics
-                    imaging</b>.
-            </p>
-
-            <p class="pub-note">
-                Here is a selection of highlighted papers from my research in lipidomics, proteomics, and imaging
-                mass spectrometry. Please find the full list of publications on my profile.
-            </p>
-
-            <p class="pub-orcid">
-                <a href="https://orcid.org/0000-0003-1834-5747" target="_blank">
-                    <i class="fa-brands fa-orcid"></i> View my ORCID profile
-                </a>
-            </p>
-
-            <div class="pub-list">
-                <!-- Paper 1 -->
-                <div class="pub-card fade-in">
-                    <i class="fa-solid fa-vial-circle-check pub-icon"></i>
-                    <div class="pub-text">
-                        <h4 class="pub-title">ReTimeML: a retention time predictor that supports the LC–MS/MS
-                            analysis
-                            of sphingolipids</h4>
-                        <p class="pub-journal"><em>Scientific Report, 2024</em></p>
-                        <p class="pub-desc">I collaborated with other researchers to employ build a model that can
-                            predict the behaviours of
-                            Lipids inside a mass-spec instrument, improving accuracy and detection. The tool helps
-                            other researchers quickly reference and identify appropriate methods for their studies.
-                        </p>
-                        <a href="https://doi.org/10.1038/s41598-024-53860-0" target="_blank" class="pub-link">
-                            <i class="fa-solid fa-up-right-from-square"></i> Read Paper
-                        </a>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-sitemap"></i>
+                            <div>
+                                <h3>Data Architecture</h3>
+                                <p>Data modelling, schemas, field mapping, pipelines, governance, and platform migration.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-robot"></i>
+                            <div>
+                                <h3>Agentic AI</h3>
+                                <p>Multi-agent workflows, AI-assisted automation, orchestration, and high-throughput delivery.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h3>Analytics & Observability</h3>
+                                <p>Dashboards, alerts, metrics analytics, ESQL, incident investigation, and reporting.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-flask"></i>
+                            <div>
+                                <h3>Data Science & Research</h3>
+                                <p>Machine learning, exploratory analysis, biomedical data, and evidence-based problem solving.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Paper 2 -->
-                <div class="pub-card fade-in">
-                    <i class="fa-solid fa-database pub-icon"></i>
-                    <div class="pub-text">
-                        <h4 class="pub-title">Deep serum lipidomics identifies evaluative and predictive biomarkers
-                            for
-                            individualized glycemic responses following
-                            low-energy diet-induced weight loss: a PREVention of diabetes through lifestyle
-                            Intervention
-                            and population studies in
-                            Europe and around the World (PREVIEW) substudy</h4>
-                        <p class="pub-journal"><em>Nature Metabolism, 2022</em></p>
-                        <p class="pub-desc">I contributed to a global clinical study by providing analytical
-                            guidance
-                            and lipidomics methods, connecting omics data
-                            with human samples to reveal how lipids influence the dynamics of Type 2 diabetes, its
-                            prevention, and management.
-                        </p>
-                        <a href="https://doi.org/10.1016/j.ajcnut.2024.08.015" target="_blank" class="pub-link">
-                            <i class="fa-solid fa-up-right-from-square"></i> Read Paper
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Paper 3 -->
-                <div class="pub-card fade-in">
-                    <i class="fa-solid fa-microscope pub-icon"></i>
-                    <div class="pub-text">
-                        <h4 class="pub-title">Ablation of sphingosine kinase 2 suppresses fatty liver-associated
-                            hepatocellular carcinoma via
-                            downregulation of ceramide transfer protein</h4>
-                        <p class="pub-journal"><em>Journal of Oncogenesis, 2022</em></p>
-                        <p class="pub-desc">I applied advanced data analytics to uncover how changes in liver fat
-                            metabolism contribute to
-                            non-alcoholic liver cancer and developed a novel imaging approach using digital analysis
-                            rather than the traditional microscopy. This method provided
-                            clearer visual and quantitative insights directly on real huamn tissues to support early
-                            diagnosis and treatment planning.
-                        </p>
-                        <a href="https://doi.org/10.1038/s41389-022-00444-0" target="_blank" class="pub-link">
-                            <i class="fa-solid fa-up-right-from-square"></i> Read Paper
-                        </a>
-                    </div>
+                <div class="skills-img">
+                    <img src="images/Wordcloud_Skills.png" alt="Word cloud of professional skills">
                 </div>
             </div>
         </section>
 
-        <!-- ===== HOBBIES ===== -->
-        <section id="hobbies" class="fade-in">
-            <h2>Hobbies</h2>
-            <div class="hobby-grid">
-                <!-- Gardening -->
-                <div class="hobby-card fade-in">
-                    <h3>🌹 Gardening</h3>
-                    <p>Gardening connects me to nature through flowers, fruit trees, and seasonal plants.</p>
-                    
-                    <div class="hobby-feature">
-                        <img src="images/Rose_red_1.png" alt="Rose main">
-                    </div>
-
-                    <div class="hobby-gallery">
-                        <img src="images/Bluemoon_1.png" alt="Bluemoon">
-                        <img src="images/lavenders_1.png" alt="Lavender">
-                        <img src="images/apricot_1.png" alt="Apricot">
-                        <img src="images/Iris_1.png" alt="Iris">
-                        <img src="images/passionfruit_1.png" alt="Passionfruit">
-                    </div>
-
-                    <button class="quiz-btn" onclick="startPlantQuiz()">
-                        🌱 Test Your Plant Knowledge!
-                    </button>
-
-                    <!-- Quiz lives HERE -->
-                    <div class="quiz-wrapper hidden" id="plantQuizWrapper">
-                        <div class="quiz-container" id="plantQuiz">
-                            
-                            <div class="quiz-header">
-                                <h3>🌱 Test Your Plant Knowledge!</h3>
-                                <div class="score">Score: <span id="score">0</span>/5</div>
-                                <button class="quiz-close" onclick="closePlantQuiz()" aria-label="Close quiz">✕</button>
-                            </div>
-                            
-                            <div class="quiz-body">
-                                <div class="question-counter">
-                                    Question <span id="currentQ">1</span>/5
-                                </div>
-                                <p class="question" id="question">Loading question...</p>
-                                <div class="options" id="options"></div>
-                            </div>
-                            
-                            <div class="quiz-footer">
-                                <button class="btn-next" id="nextBtn" disabled>Next Question</button>
-                            </div>
-                            
-                            <div class="quiz-result hidden" id="result">
-                                <h3>🎉 Quiz Complete!</h3>
-                                <p>You scored <span id="finalScore">0</span> out of 5</p>
-                                <p id="resultMessage"></p>
-                                <button class="btn-restart" id="restartBtn">Try Again</button>
-                            </div>
-                        </div><!-- END quiz-container -->
-                    </div><!-- END quiz-wrapper -->
-                </div><!-- END Gardening hobby-card -->
-
-                <!-- Cooking -->
-                <div class="hobby-card fade-in">
-                    <h3>🍳 Cooking</h3>
-                    <p>Experimenting in the kitchen is one of my favourite creative outlets.</p>
-                    <div class="hobby-feature landscape">
-                        <img src="images/eggs_1.jpg" alt="Eggs main">
-                    </div>
-
-                    <div class="hobby-gallery">
-                        <img src="images/cooking_1.png" alt="Vietnamese Cuisine">
-                        <img src="images/meringue.jpg" alt="Meringue">
-                        <img src="images/Ricpaperrolls.jpg" alt="Rice Paper Rolls">
-                    </div>
-                    <div class="hobby-stats">
-                        <span><b>50+</b> Recipes</span>
-                        <span><b>3</b> Cuisines</span>
-                    </div>
-                    
-                    <button class="recipe-btn" id="toggleRecipesBtn">
-                        🍳 View Recipes
-                    </button>
-                </div><!-- END Cooking hobby-card -->
-
-                <!-- Travelling -->
-                <div class="hobby-card fade-in">
-                    <h3>🚗 Travelling</h3>
-                    <p>Road trips recharge my energy and inspire fresh perspectives.</p>
-                    <div class="hobby-feature landscape">
-                        <img src="images/Cairn.jpg" alt="Cairn main">
-                    </div>
-                    <div class="hobby-gallery">
-                        <img src="images/road_1.png" alt="Scenic Drive">
-                        <img src="images/wattle_1.jpg" alt="Wattle">
-                    </div>
-                    <div class="hobby-stats">
-                        <span><b>15+</b> Destinations</span>
-                        <span><b>5000+</b> KM Travelled</span>
-                    </div>
-                </div><!-- END Travelling hobby-card -->
-            </div><!-- END hobby-grid -->
-
-            <!-- ===== RECIPE MODAL (moved outside hobby-grid) ===== -->
-            <div class="recipe-wrapper hidden" id="recipeWrapper">
-                <div class="recipe-section">
-                    <button class="recipe-close" onclick="closeRecipes()">✕</button>
-
-                    <h3>🍳 My Favourite Recipes</h3>
-                    <p class="recipe-subtitle">Recipes are coming soon.</p>
-
-                    <div class="recipe-grid">
-                        <div class="recipe-card coming-soon">
-                            <img src="images/cooking_1.png" alt="Roast Chicken">
-                            <div class="coming-soon-overlay">🍽️ Coming soon</div>
-                        </div>
-
-                        <div class="recipe-card coming-soon">
-                            <img src="images/meringue.jpg" alt="Berry Pavlova">
-                            <div class="coming-soon-overlay">🍰 Coming soon</div>
-                        </div>
-
-                        <div class="recipe-card coming-soon">
-                            <img src="images/Ricpaperrolls.jpg" alt="Ricepaper Rolls">
-                            <div class="coming-soon-overlay">🥬 Coming soon</div>
-                        </div>
-                    </div>
-                </div><!-- END recipe-section -->
-            </div><!-- END recipe-wrapper -->
-        </section><!-- END hobbies section -->
 
         <!-- ===== CONTACT ===== -->
         <section id="contact" class="fade-in">
