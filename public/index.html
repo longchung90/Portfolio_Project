@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!-- STYLE-->
 <!-- CSS -->
 <link rel="stylesheet" href="/css/master.css">
@@ -24,6 +30,13 @@
             });
         });
     });
+
+    function scrollProjects(direction) {
+        const gallery = document.getElementById("projects");
+        if (gallery) {
+            gallery.scrollBy({ left: direction * gallery.clientWidth * 0.85, behavior: "smooth" });
+        }
+    }
 </script>
 
 </head>
@@ -46,7 +59,7 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Long Hoa Chung</h1>
-                <p>...telling impactful stories through data — bridging science and analytics.</p>
+                <p>Telling impactful stories through data and driving better business decisions.</p>
             </div>
         </section>
 
@@ -56,12 +69,6 @@
             <div class="about-row">
                 <div class="about-img">
                     <img src="images/Long_1.jpg" alt="Long Hoa Chung at NSW Parliament House, Science Week 2023">
-                    <p class="caption">
-                        At the NSW Parliament House during Science Week 2023, showcasing my image of human liver tissue
-                        captured
-                        by
-                        mass spectrometry—analysed from over 20,000 data points.
-                    </p>
                 </div>
 
                 <div class="about-text">
@@ -69,10 +76,10 @@
                         My journey began in biomedical research, advancing lipidomics, proteomics, and mass-spectrometry
                         imaging.
                         I've since expanded into AI and data analytics across finance, retail, and healthcare.
-                        Each project reflects my passion for blending science, technology, and creativity to deliver
-                        data-driven
-                        insights
-                        and solve real-world challenges.
+                        I am particularly interested in financial services and business problems where strong data
+                        foundations can improve decision-making, manage risk, increase operational efficiency, and
+                        create measurable value. Each project reflects my passion for blending science, technology,
+                        and creativity to deliver practical insights and solve real-world challenges.
                     </p>
                 </div>
             </div>
@@ -82,16 +89,27 @@
 <section id="portfolio" class="fade-in">
     <h2>Portfolio</h2>
     <p>
-        I bring a unique blend of expertise spanning biomedical research and modern data analytics.
-        From pioneering DESI-MS imaging (laboratory + instrument-acquired big data) to building AI-driven models
-        for financial, retail, and healthcare datasets, my work demonstrates how rigorous science and data
-        innovation can deliver impact across industries.
+        I bring a blend of modern data analytics, data architecture, and applied AI experience. Through my work with
+        Westpac, I have gained exposure to financial services, business operations, and technology-driven service
+        delivery, including large-scale platform migration and observability. My portfolio demonstrates how strong
+        data foundations and practical innovation can support better decisions, improve efficiency, and deliver
+        meaningful business value.
     </p>
 
-    <!-- ===== Project Experience (Frosted Overlay) ===== -->
-    <div class="project-experience-overlay">
-        <div class="project-experience-content">
-            <h3>Project Experience</h3>
+    <!-- ===== PROJECT GALLERY ===== -->
+    <div class="projects-gallery-heading">
+        <h3>Project Experience</h3>
+        <div class="gallery-controls">
+            <button type="button" class="gallery-control" onclick="scrollProjects(-1)" aria-label="Previous projects">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button type="button" class="gallery-control" onclick="scrollProjects(1)" aria-label="Next projects">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="projects">
             <div class="project-card migration-project">
                 <div class="project-header">
                     <h3>Splunk to Elastic Migration Project</h3>
@@ -100,13 +118,9 @@
 
                 <p class="project-meta">Westpac Banking Group | [Dates] | Engineer</p>
 
-                <div class="project-feature migration-placeholder" role="img"
-                    aria-label="Placeholder visual for the Splunk to Elastic migration project">
-                    <i class="fas fa-database"></i>
-                    <span>Splunk</span>
-                    <i class="fas fa-arrow-right"></i>
-                    <span>Elastic</span>
-                    <small>Observability dashboard screenshot</small>
+                <div class="project-feature migration-dashboard">
+                    <iframe src="/widgets/banking-dashboard.html" title="Banking observability dashboard"
+                        width="100%" height="480" frameborder="0" scrolling="no"></iframe>
                 </div>
 
                 <div class="project-solution">
@@ -147,11 +161,6 @@
                     </p>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- ===== PROJECTS GRID ===== -->
-    <div id="projects">
 
         <!-- =========================
              Project 1: Falcon 9 Launch SpaceX
@@ -381,7 +390,8 @@
                 </div>
 
                 <div class="skills-img">
-                    <img src="images/Wordcloud_Skills.png" alt="Word cloud of professional skills">
+                    <img src="images/banking-observability-dashboard.png"
+                        alt="Banking observability dashboard showing live system health metrics">
                 </div>
             </div>
         </section>
